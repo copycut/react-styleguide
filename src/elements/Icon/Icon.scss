@@ -1,0 +1,49 @@
+@import '../../styles/config';
+
+@mixin iconSizesBuilder($size: 'normal') {
+  height: map-get($iconSizes, $size);
+  width: map-get($iconSizes, $size);
+}
+
+$iconSizes: (
+  'extraSmall': 10px,
+  'small': 12px,
+  'normal': 16px,
+  'large': 20px,
+  'extraLarge': 22px
+);
+
+.rsg__icon {
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: middle;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  overflow: visible;
+  line-height: 0;
+  @include iconSizesBuilder();
+
+  svg {
+    @include iconSizesBuilder();
+  }
+
+  @each $size, $value in $iconSizes {
+    &.rsg__icon--#{$size} {
+      @include iconSizesBuilder($size);
+
+      svg {
+        @include iconSizesBuilder($size);
+      }
+    }
+  }
+
+  @each $color, $colorValue in $colors {
+    &.rsg__icon--#{$color} {
+      fill: $colorValue;
+    }
+  }
+
+  &.rsg__icon--loader {
+    animation: rsg__spin $speedSlow linear infinite forwards;
+  }
+}

@@ -1,0 +1,64 @@
+@import '../../styles/config';
+
+.rsg__menuItem {
+  box-sizing: border-box;
+  display: block;
+  padding: $paddingExtraSmall $paddingSmall;
+  color: $greyDark;
+  font-family: $sansSerif;
+  line-height: $lineHeightNormal;
+  font-size: $fontSizeSmall;
+  font-weight: $fontWeightNormal;
+  cursor: pointer;
+  text-align: left;
+  text-decoration: none;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  outline: none;
+
+  &:hover,
+  &:focus {
+    &:not(.rsg__menuItem--header) {
+      background-color: $primarySmoke;
+      color: $primaryDark;
+    }
+  }
+
+  &.rsg__menuItem--active,
+  &:active {
+    background-color: $primary;
+    color: $white;
+  }
+
+  &:first-child {
+    border-top-left-radius: ($radius - 1);
+    border-top-right-radius: ($radius - 1);
+  }
+
+  &:last-child {
+    border-bottom-left-radius: ($radius - 1);
+    border-bottom-right-radius: ($radius - 1);
+  }
+
+  &.rsg__menuItem--disabled {
+    background-color: $greySmoke;
+    color: $greyMedium;
+    cursor: not-allowed;
+  }
+
+  &.rsg__menuItem--block {
+    display: block;
+    width: 100%;
+  }
+
+  &.rsg__menuItem--header {
+    font-size: $fontSizeExtraSmall;
+    padding: $paddingSmall $paddingSmall $paddingExtraSmall $paddingSmall;
+    color: $greyMedium;
+    border-bottom: 1px solid $borderColor;
+    cursor: default;
+    text-transform: uppercase;
+    background-color: $greySmoke;
+  }
+}

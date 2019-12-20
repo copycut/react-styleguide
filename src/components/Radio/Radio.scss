@@ -1,0 +1,105 @@
+@import '../../styles/config';
+
+.rsg__radio {
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: middle;
+  padding-right: $paddingSmall;
+
+  &:hover {
+    .rsg__radio__button {
+      box-shadow: 0 0 3px $primary;
+    }
+  }
+
+  .rsg__radio__label {
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: $sansSerif;
+    font-size: $fontSizeNormal;
+    font-weight: $fontWeightNormal;
+    line-height: $lineHeightNormal;
+    margin-bottom: $paddingExtraSmall;
+    color: $greyDarker;
+    cursor: pointer;
+  }
+
+  .rsg__radio__button {
+    cursor: pointer;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+    height: 16px;
+    width: 16px;
+    border: 1px solid $borderColor;
+    box-shadow: none;
+    margin-right: $paddingSmall;
+    position: relative;
+    border-radius: 50%;
+    top: -2px;
+    transition: background-color $speed $ease;
+    outline: none;
+    background-color: $white;
+
+    .rsg__radio__mark {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%) translateZ(0);
+      height: 14px;
+      width: 14px;
+      background-color: $white;
+      border-radius: 50%;
+      transition: all $speed $ease;
+    }
+
+    &:hover,
+    &:focus {
+      border-color: $primary;
+      box-shadow: 0 0 3px $primary;
+
+      .rsg__radio__mark {
+        height: 5px;
+        width: 5px;
+        background-color: $primary;
+      }
+    }
+  }
+
+  &.rsg__radio--checked.rsg__radio--disabled,
+  &.rsg__radio--disabled {
+    cursor: not-allowed;
+
+    .rsg__radio__label {
+      cursor: not-allowed;
+      color: $greyMedium;
+    }
+
+    .rsg__radio__button {
+      box-shadow: none;
+      cursor: not-allowed;
+      background-color: $greyLight;
+      border-color: $borderColor;
+
+      .rsg__radio__mark {
+        background-color: $greySmoke;
+      }
+    }
+  }
+
+  &.rsg__radio--checked {
+    .rsg__radio__button {
+      border-color: $primary;
+      background-color: $primary;
+
+      .rsg__radio__mark {
+        height: 5px;
+        width: 5px;
+        background-color: $white;
+      }
+    }
+  }
+}

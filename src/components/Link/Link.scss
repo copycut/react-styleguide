@@ -1,0 +1,31 @@
+@import "../../styles/config";
+
+.rsg__link {
+  color: $primary;
+  cursor: pointer;
+  font-family: $sansSerif;
+  box-sizing: border-box;
+
+  &:hover,
+  &:focus {
+    color: $primaryDark;
+  }
+
+  &.rsg__link--active,
+  &:active {
+    color: $primaryLight;
+  }
+
+  &:focus,
+  &.rsg__link--active,
+  &:active {
+    outline: none;
+    text-shadow: 0 0 10px rgba($primary, 0.15);
+  }
+
+  &.rsg__link--disabled,
+  &:disabled {
+    color: $greyMedium;
+    cursor: not-allowed;
+  }
+}

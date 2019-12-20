@@ -1,0 +1,14 @@
+node:
+  build: .
+  command: npm start
+  ports:
+    - '6060:6060'
+  volumes:
+    - ./styleguide.config.js:/var/www/styleguide.config.js
+    - ./webpack.config.js:/var/www/webpack.config.js
+    - ./styleguide:/var/www/styleguide
+    - ./src:/var/www/src
+    - ./test:/var/www/test
+    - ./build:/var/www/build
+    - ./coverage:/var/www/coverage
+    - ./package.json:/var/www/package.json

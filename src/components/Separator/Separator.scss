@@ -1,0 +1,24 @@
+@import '../../styles/config';
+
+.rsg__separator {
+  box-sizing: border-box;
+  display: block;
+  border-top: 1px solid $borderColor;
+  padding: 0;
+  margin: $paddingSmall 0;
+  line-height: $lineHeightExtraSmall;
+  position: relative;
+
+  &.rsg__separator--reverse {
+    border-color: $greyDark;
+  }
+
+  &.rsg__separator--vertical {
+    width: 1px;
+    height: 100%;
+    min-height: 30px;
+    border-top: none;
+    border-left: 1px solid $borderColor;
+    margin: 0 $paddingSmall;
+  }
+}

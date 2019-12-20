@@ -1,0 +1,69 @@
+@import '../../styles/config';
+
+.rsg__search {
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+
+  .rsg__search__icon {
+    position: absolute;
+    bottom: 12px;
+    left: $padding;
+    z-index: 3;
+  }
+
+  &.rsg__search--block {
+    width: 100%;
+    display: block;
+  }
+
+  &.rsg__search--disabled {
+    .rsg__search__icon {
+      opacity: 0.5;
+    }
+  }
+
+  &.rsg__search--extraSmall {
+    .rsg__search__input {
+      padding-left: 30px;
+    }
+
+    .rsg__search__icon {
+      bottom: 8px;
+    }
+  }
+
+  &.rsg__search--small {
+    .rsg__search__input {
+      padding-left: 35px;
+    }
+
+    .rsg__search__icon {
+      bottom: 9px;
+    }
+  }
+
+  &.rsg__search--large {
+    .rsg__search__input {
+      padding-left: 45px;
+    }
+
+    .rsg__search__icon {
+      bottom: 18px;
+    }
+  }
+
+  &.rsg__search--extraLarge {
+    .rsg__search__input {
+      padding-left: 50px;
+    }
+
+    .rsg__search__icon {
+      bottom: 32px;
+    }
+  }
+
+  .rsg__search__input {
+    padding-left: 40px;
+  }
+}

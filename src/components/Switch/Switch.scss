@@ -1,0 +1,110 @@
+@import '../../styles/config';
+
+@mixin switchSizesBuilder($map: ()) {
+  height: map-get($map, 'height');
+  width: map-get($map, 'width');
+  border-radius: map-get($map, 'border-radius');
+}
+
+$switchSizes: (
+  extraSmall: (
+    height: 12px,
+    width: 18px,
+    border-radius: 6px
+  ),
+  small: (
+    height: 16px,
+    width: 26px,
+    border-radius: 8px
+  ),
+  normal: (
+    height: 22px,
+    width: 38px,
+    border-radius: 11px
+  ),
+  large: (
+    height: 30px,
+    width: 54px,
+    border-radius: 15px
+  ),
+  extraLarge: (
+    height: 41px,
+    width: 75px,
+    border-radius: 20px
+  )
+);
+
+.rsg__switch {
+  position: relative;
+  box-sizing: border-box;
+  @include switchSizesBuilder(map-get($switchSizes, 'normal'));
+  display: inline-block;
+  background-color: $grey;
+  cursor: pointer;
+
+  &:focus,
+  &:hover,
+  &:active {
+    background-color: $greyMedium;
+  }
+
+  @each $sizeLabel, $map in $switchSizes {
+    &.rsg__switch--#{$sizeLabel} {
+      @include switchSizesBuilder($map);
+    }
+  }
+
+  @each $color, $colorValue in $colors {
+    &.rsg__switch--#{$color} {
+      background-color: $colorValue;
+
+      &:focus,
+      &:hover {
+        background-color: mix($colorValue, $black, 90%);
+      }
+
+      &:active,
+      &.rsg__switch--active {
+        background-color: mix($colorValue, $white, 90%);
+      }
+    }
+  }
+
+  @each $color, $colorValue in $smokedColors {
+    &.rsg__switch--#{$color} {
+      box-shadow: inset 0 0 15px -5px mix($colorValue, $black);
+    }
+  }
+
+  &.rsg__switch--active {
+    background-color: $greyDarker;
+  }
+
+  &.rsg__switch--disabled {
+    cursor: not-allowed;
+    background-color: $greyLight;
+  }
+
+  &.rsg__switch--disabled.rsg__switch--active {
+    cursor: not-allowed;
+    background-color: $grey;
+  }
+
+  .rsg__switch__toggle {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    background-color: $white;
+    top: 3px;
+    bottom: 3px;
+    left: 3px;
+    right: 50%;
+    border-radius: 50%;
+    transition: all $speed $ease;
+  }
+
+  &.rsg__switch--active .rsg__switch__toggle {
+    left: 50%;
+    right: 3px;
+  }
+}

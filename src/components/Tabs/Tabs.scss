@@ -1,0 +1,43 @@
+@import '../../styles/config';
+
+@function percentageSplit($value) {
+  @if $value > 1 {
+    @return calc(#{100 / $value + '%' ' + 1px'});
+  }
+  @return 100 / $value + '%';
+}
+
+.rsg__tabs {
+  box-sizing: border-box;
+
+  .rsg__tabs__button {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-left: -1px;
+
+    &:first-child {
+      margin-right: -1px;
+      margin-left: 0;
+    }
+
+    &.rsg__button--active {
+      box-shadow: none;
+      border-color: $borderColor;
+      border-bottom-color: transparent;
+    }
+  }
+
+  &.rsg__tabs--block {
+    .rsg__tabs__button {
+      display: inline-block;
+    }
+
+    @for $i from 1 through 20 {
+      &.rsg__tabs--block--#{$i} {
+        .rsg__tabs__button {
+          width: percentageSplit($i);
+        }
+      }
+    }
+  }
+}

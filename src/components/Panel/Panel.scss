@@ -1,0 +1,65 @@
+@import '../../styles/config';
+
+.rsg__panel {
+  box-sizing: border-box;
+  display: block;
+  margin: 0 0 $padding 0;
+  padding: 0;
+  border-radius: $radius;
+  border: 1px solid $borderColor;
+  box-shadow: $shadow;
+  background-color: $white;
+
+  .rsg__panel__content {
+    font-family: $sansSerif;
+    font-weight: $fontWeightNormal;
+    font-size: $fontSizeNormal;
+    line-height: $lineHeightNormal;
+    color: $textColor;
+    padding: $padding;
+  }
+
+  .rsg__panel__title,
+  .rsg__panel__footer {
+    background-color: $greySmoke;
+    padding: $paddingSmall $padding;
+  }
+
+  .rsg__panel__title {
+    border-bottom: 1px solid $borderColor;
+    border-top-right-radius: ($radius - 1);
+    border-top-left-radius: ($radius - 1);
+  }
+
+  .rsg__panel__footer {
+    border-top: 1px solid $borderColor;
+    border-bottom-right-radius: ($radius - 1);
+    border-bottom-left-radius: ($radius - 1);
+  }
+
+  @each $color, $colorValue in $colors {
+    &.rsg__panel--#{$color} {
+      border-color: $colorValue;
+
+      .rsg__panel__title,
+      .rsg__panel__footer {
+        border-color: $colorValue;
+        background-color: $colorValue;
+        color: $white;
+      }
+    }
+  }
+
+  &.rsg__panel--greySmoke,
+  &.rsg__panel--primarySmoke,
+  &.rsg__panel--successSmoke,
+  &.rsg__panel--warningSmoke,
+  &.rsg__panel--dangerSmoke,
+  &.rsg__panel--infoSmoke,
+  &.rsg__panel--extraSmoke {
+    .rsg__panel__title,
+    .rsg__panel__footer {
+      color: $textColor;
+    }
+  }
+}

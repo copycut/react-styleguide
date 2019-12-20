@@ -1,0 +1,34 @@
+$sansSerif: 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
+$monospace: 'Lucida Console', Monaco, monospace;
+
+$fontWeightLight: 300;
+$fontWeightNormal: 400;
+$fontWeightBold: 700;
+
+$fontSizeExtraLarge: 22px;
+$fontSizeLarge: 18px;
+$fontSizeNormal: 16px;
+$fontSizeSmall: 14px;
+$fontSizeExtraSmall: 12px;
+
+$fontSizeTitle: round($fontSizeExtraLarge * 1.66);
+
+$lineHeightLarge: 1.6;
+$lineHeightNormal: 1.5;
+$lineHeightSmall: 1;
+$lineHeightExtraSmall: 0;
+
+$fontSizes: (
+  extraSmall: $fontSizeExtraSmall,
+  small: $fontSizeSmall,
+  normal: $fontSizeNormal,
+  large: $fontSizeLarge,
+  extraLarge: $fontSizeExtraLarge
+);
+
+@mixin defaultFonts() {
+  font-size: $fontSizeNormal;
+  font-weight: $fontWeightNormal;
+  font-family: $sansSerif;
+  color: $textColor;
+}

@@ -1,0 +1,99 @@
+@import '../../styles/config/';
+
+.rsg__progressBar {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 55px;
+  padding: $padding;
+  transition: border-radius $speed, height $speed, background-color $speed;
+
+  .rsg__progressBar__percentage,
+  .rsg__progressBar__label {
+    padding: ($paddingExtraSmall - 2px);
+    font-family: $sansSerif;
+  }
+
+  .rsg__progressBar__bar {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    flex-shrink: 1;
+    height: 90%;
+    border: 1px solid $greyLight;
+    background-color: $white;
+  }
+
+  .rsg__progressBar__progression {
+    background-color: $greyLight;
+    height: 100%;
+    transition: width $speed;
+  }
+
+  @each $color, $colorValue in $colors {
+    &.rsg__progressBar--#{$color} {
+      .rsg__progressBar__percentage,
+      .rsg__progressBar__label {
+        color: $colorValue;
+      }
+
+      .rsg__progressBar__bar {
+        border: 1px solid $colorValue;
+      }
+
+      .rsg__progressBar__progression {
+        background-color: $colorValue;
+      }
+    }
+  }
+
+  &.rsg__progressBar--rounded,
+  &.rsg__progressBar--rounded .rsg__progressBar__label {
+    border-radius: $radiusLarge;
+  }
+
+  &.rsg__progressBar--rounded .rsg__progressBar__bar {
+    border-radius: ($radiusRounded + 8px);
+  }
+
+  &.rsg__progressBar--rounded .rsg__progressBar__progression {
+    border-top-left-radius: ($radiusRounded + 8px);
+    border-bottom-left-radius: ($radiusRounded + 8px);
+  }
+
+  &.rsg__progressBar--extraLarge {
+    height: 75px;
+  }
+
+  &.rsg__progressBar--large {
+    height: 65px;
+  }
+
+  &.rsg__progressBar--small {
+    height: 45px;
+  }
+
+  &.rsg__progressBar--extraSmall {
+    height: 35px;
+  }
+
+  &.rsg__progressBar--left {
+    flex-direction: row;
+
+    .rsg__progessBar__label {
+      margin-right: 20px;
+    }
+  }
+
+  &.rsg__progressBar--right {
+    flex-direction: row-reverse;
+
+    .rsg__progessBar__label {
+      margin-left: 20px;
+    }
+  }
+}

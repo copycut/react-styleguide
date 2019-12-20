@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+
+@import './animations';
+
+.spin__animation {
+  animation: rsg__spin $speedSlow linear infinite forwards;
+}
+
+@keyframes rsg__spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rsg__slideIn {
+  0% {
+    opacity: 0;
+    transform: scale3d(1, 0, 1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes rsg__slideOut {
+  0% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+  99% {
+    opacity: 0;
+    transform: scale3d(1, 0, 1);
+  }
+  100% {
+    visibility: hidden;
+    display: none;
+    opacity: 0;
+    transform: scale3d(1, 0, 1);
+    height: 0;
+  }
+}
+
+@keyframes rsg__zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes rsg__zoomOut {
+  from {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes rsg__fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rsg__fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes rsg__checkIcon {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}

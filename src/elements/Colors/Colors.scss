@@ -1,0 +1,38 @@
+@import '../../styles/config';
+@import '../../styles/global';
+
+.color {
+  display: block;
+  box-sizing: border-box;
+  overflow: hidden;
+  @include defaultFonts;
+  padding-top: 120px;
+
+  @each $color, $colorValue in $colors {
+    &.color--#{$color} {
+      background-color: $colorValue;
+    }
+  }
+
+  .color--text {
+    display: block;
+    box-sizing: border-box;
+    @include defaultFonts;
+    padding: $padding;
+    background-color: $white;
+    text-align: center;
+  }
+
+  .color--name {
+    display: block;
+    box-sizing: border-box;
+    @include defaultFonts;
+  }
+
+  .color--hexa {
+    display: block;
+    box-sizing: border-box;
+    @include defaultFonts;
+    font-weight: $fontWeightBold;
+  }
+}

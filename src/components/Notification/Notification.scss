@@ -1,0 +1,40 @@
+@import '../../styles/config';
+
+.rsg__notification {
+  position: fixed;
+  top: -60px;
+  left: 0;
+  right: 0;
+  z-index: ($zindex-navbar-fixed + 1);
+  height: 60px;
+  overflow: hidden;
+  transition: top $speed $ease, bottom $speed $ease, opacity $speed $ease;
+  border-radius: 0;
+  text-align: center;
+  margin: 0;
+  opacity: 0;
+
+  &.rsg__notification--active {
+    opacity: 1;
+  }
+
+  &.rsg__notification--bottom {
+    top: auto;
+    bottom: -60px;
+
+    &.rsg__notification--active {
+      top: auto;
+      bottom: 0;
+    }
+  }
+
+  &.rsg__notification--active {
+    top: 0;
+  }
+
+  .rsg__alert__inner {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

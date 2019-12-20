@@ -1,0 +1,17 @@
+$radius: 4px;
+$radiusLarge: 6px;
+$radiusRounded: 16px;
+$paddingExtraSmall: 6px;
+$paddingSmall: 10px;
+$padding: 16px;
+$paddingLarge: 30px;
+$paddingExtraLarge: 60px;
+$minWidthMenu: 150px;
+
+$paddingSizes: (
+  'extraSmall': $paddingExtraSmall,
+  'small': $paddingSmall,
+  'normal': $padding,
+  'large': $paddingLarge,
+  'extraLarge': $paddingExtraLarge
+);

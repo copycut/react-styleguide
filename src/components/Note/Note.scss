@@ -1,0 +1,13 @@
+@import '../../styles/config';
+
+.rsg__note {
+  box-sizing: border-box;
+  display: block;
+  margin: 0;
+  padding: 0;
+  font-family: $sansSerif;
+  font-size: $fontSizeExtraSmall;
+  font-weight: $fontWeightNormal;
+  line-height: $lineHeightNormal;
+  color: $grey;
+}

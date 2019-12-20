@@ -1,0 +1,50 @@
+@import '../../styles/config';
+
+.rsg__card {
+  font-family: $sansSerif;
+  font-size: $fontSizeNormal;
+  font-weight: $fontWeightNormal;
+  line-height: $lineHeightNormal;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border: 1px solid $borderColor;
+  border-radius: $radius;
+  padding: $padding;
+  margin-bottom: $padding;
+  background-color: $white;
+
+  .rsg__thumbnail {
+    margin: -$padding;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    width: 100%;
+    width: calc(100% + #{$padding * 2});
+    max-width: none;
+
+    &:not(:only-child) {
+      &:first-child {
+        margin-bottom: $padding;
+      }
+
+      &:last-child {
+        margin-top: $padding;
+      }
+    }
+  }
+
+  .rsg__note {
+    padding: 0 0 $paddingExtraSmall 0;
+    text-align: left;
+  }
+
+  .rsg__title {
+    text-align: left;
+    padding-bottom: $paddingSmall;
+  }
+
+  .rsg__text {
+    text-align: left;
+  }
+}

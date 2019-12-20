@@ -1,0 +1,11 @@
+@import '../../styles/config';
+
+.rsg__row {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}

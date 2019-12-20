@@ -1,0 +1,55 @@
+@import '../../styles/config';
+
+.rsg__menu {
+  box-sizing: border-box;
+  display: inline-block;
+  box-shadow: $shadowLarge;
+  border-radius: $radius;
+  border: 1px solid $borderColor;
+  background-color: $white;
+
+  .rsg__separator {
+    margin: 0;
+  }
+
+  &.rsg__menu--inverse {
+    border-color: $greyDarker;
+    background-color: $greyDark;
+    color: $white;
+
+    .rsg__menuItem {
+      background-color: $greyDark;
+      color: $white;
+
+      &.rsg__menuItem--active,
+      &:hover,
+      &:focus {
+        &:not(.rsg__menuItem--disabled):not(.rsg__menuItem--header) {
+          background-color: $primaryDark;
+          color: $white;
+        }
+      }
+
+      &:active {
+        &:not(.rsg__menuItem--disabled):not(.rsg__menuItem--header) {
+          background-color: $primary;
+          color: $white;
+        }
+      }
+
+      &.rsg__menuItem--disabled {
+        color: $grey;
+      }
+
+      &.rsg__menuItem--header {
+        color: $greyLight;
+        background-color: $greyDark;
+        border-bottom-color: $greyMedium;
+      }
+    }
+
+    .rsg__separator {
+      border-color: $greyMedium;
+    }
+  }
+}

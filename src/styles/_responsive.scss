@@ -1,0 +1,15 @@
+$tablet: 768px;
+$desktop: 992px;
+$largeDesktop: 1200px;
+
+@mixin breakpoint($size: $desktop, $reverse: false) {
+  @if ($reverse) {
+    @media screen and (max-width: #{$size}) {
+      @content;
+    }
+  } @else {
+    @media screen and (min-width: #{$size}) {
+      @content;
+    }
+  }
+}

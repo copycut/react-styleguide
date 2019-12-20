@@ -1,0 +1,158 @@
+@import '../../styles/config';
+
+@mixin tagSizesBuilder($size: 'normal') {
+  font-size: map-get($fontSizes, $size) * 0.8;
+  padding: (map-get($paddingSizes, $size) / 4)
+    (map-get($paddingSizes, $size) / 2);
+}
+
+$tagSizes: ('extraSmall', 'small', 'normal', 'large', 'extraLarge');
+
+@mixin tagRadiusBuilder($map: ()) {
+  border-radius: map-get($map, 'border-radius');
+}
+
+$tagRadius: (
+  extraSmall: (
+    border-radius: 13px
+  ),
+  small: (
+    border-radius: 15px
+  ),
+  normal: (
+    border-radius: 20px
+  ),
+  large: (
+    border-radius: 27px
+  ),
+  extraLarge: (
+    border-radius: 43px
+  )
+);
+
+.rsg__tag {
+  @include tagSizesBuilder();
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: middle;
+  font-family: $sansSerif;
+  font-weight: $fontWeightLight;
+  line-height: $lineHeightSmall;
+  margin: 0;
+  border: 1px solid $borderColor;
+  color: $greyDark;
+  background-color: $white;
+  border-radius: $radiusLarge;
+
+  .rsg__tag__button {
+    vertical-align: middle;
+    margin-top: -3px;
+    margin-left: $paddingExtraSmall;
+  }
+
+  &.rsg__tag--clickable {
+    cursor: pointer;
+  }
+
+  @each $color, $colorValue in $colors {
+    &.rsg__tag--#{$color} {
+      border-color: $colorValue;
+      background-color: $colorValue;
+      color: $white;
+
+      @if (lightness($colorValue) < 60) {
+        .rsg__tag__button .rsg__icon {
+          fill: mix($colorValue, $black, 60%);
+        }
+      }
+
+      @if (lightness($colorValue) < 30) {
+        .rsg__tag__button .rsg__icon {
+          fill: mix($colorValue, $white, 30%);
+        }
+      }
+
+      &.rsg__tag--clickable {
+        &:hover,
+        &:focus,
+        &:active {
+          border-color: mix($colorValue, $black, 90%);
+          background-color: mix($colorValue, $black, 90%);
+        }
+      }
+    }
+  }
+
+  &.rsg__tag--black {
+    color: $white;
+  }
+
+  &.rsg__tag--grey {
+    color: $white;
+  }
+
+  &.rsg__tag--white {
+    color: $greyMedium;
+  }
+
+  &.rsg__tag--greySmoke {
+    color: $greyMedium;
+  }
+
+  &.rsg__tag--greyLight {
+    color: $greyDark;
+  }
+
+  &.rsg__tag--primarySmoke {
+    color: $primaryDark;
+  }
+
+  &.rsg__tag--successSmoke {
+    color: $successDark;
+  }
+
+  &.rsg__tag--warningSmoke {
+    color: $warningDark;
+  }
+
+  &.rsg__tag--dangerSmoke {
+    color: $dangerDark;
+  }
+
+  &.rsg__tag--infoSmoke {
+    color: $infoDark;
+  }
+
+  &.rsg__tag--extraSmoke {
+    color: $extraDark;
+  }
+
+  &.rsg__tag--pushRight {
+    float: right;
+  }
+
+  &.rsg__tag--pushLeft {
+    float: left;
+  }
+
+  @each $size in $tagSizes {
+    &.rsg__tag--#{$size} {
+      @include tagSizesBuilder($size);
+    }
+  }
+
+  &.rsg__tag--rounded {
+    border-radius: 20px;
+
+    @each $size, $map in $tagRadius {
+      &.rsg__tag--#{$size} {
+        @include tagRadiusBuilder($map);
+      }
+    }
+  }
+
+  &.rsg__tag--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

@@ -1,0 +1,41 @@
+@import '../../styles/config';
+
+.rsg__pagination {
+  position: relative;
+  box-sizing: border-box;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  clear: both;
+
+  .rsg__pagination__pagesGroup {
+    padding-left: $padding;
+    padding-right: $padding;
+
+    .rsg__pagination__page.rsg__button--active {
+      box-shadow: none;
+      background-color: $primary;
+      border-color: $primary;
+      color: $white;
+    }
+  }
+
+  .rsg__pagination__form {
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: $padding;
+  }
+
+  .rsg__pagination__textWithSpace,
+  .rsg__pagination__text {
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: $paddingExtraSmall;
+    padding-bottom: 0;
+  }
+
+  .rsg__pagination__textWithSpace {
+    padding-left: 0;
+    padding-right: $paddingExtraSmall;
+  }
+}

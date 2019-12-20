@@ -1,0 +1,152 @@
+@import '../../styles/config';
+
+.rsg__checkbox {
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: middle;
+
+  .rsg__checkbox__label {
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: $sansSerif;
+    font-size: $fontSizeNormal;
+    font-weight: $fontWeightNormal;
+    line-height: $lineHeightNormal;
+    margin-bottom: $paddingExtraSmall;
+    color: $greyDarker;
+    cursor: pointer;
+    padding-right: $paddingSmall;
+
+    .rsg__checkbox__button {
+      margin-right: $paddingSmall;
+    }
+  }
+
+  .rsg__checkbox__button {
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+    cursor: pointer;
+    height: 16px;
+    width: 16px;
+    border: 1px solid $borderColor;
+    border-radius: $radius;
+    outline: none;
+    background-color: $white;
+
+    &:hover,
+    &:focus {
+      border-color: $primary;
+      box-shadow: 0 0 3px $primary;
+
+      .rsg__checkbox__mark {
+        height: 5px;
+        width: 5px;
+        background-color: $primary;
+      }
+    }
+  }
+
+  .rsg__checkbox__mark {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%) translateZ(0);
+    height: 14px;
+    width: 14px;
+    background-color: $white;
+    border-radius: ($radius - 1);
+    transition: all $speed $ease;
+  }
+
+  &.rsg__checkbox--checked {
+    .rsg__checkbox__button {
+      background-color: $primary;
+      border-color: $primary;
+
+      .rsg__checkbox__mark {
+        background-color: $white;
+        border-radius: 2px;
+      }
+
+      .rsg__checkbox__mark--one {
+        height: 2px;
+        width: 7px;
+        transform: rotate(45deg) translateY(-50%) translateX(-50%) translateZ(0);
+        margin-top: 4px;
+        margin-left: -5px;
+      }
+
+      .rsg__checkbox__mark--two {
+        height: 2px;
+        width: 11px;
+        transform: rotate(-45deg) translateY(-50%) translateX(-50%)
+          translateZ(0);
+        margin-top: -4px;
+        margin-left: 1px;
+      }
+    }
+  }
+
+  &.rsg__checkbox--someChecked {
+    .rsg__checkbox__button {
+      background-color: $primary;
+      border-color: $primary;
+
+      .rsg__checkbox__mark {
+        background-color: $white;
+        border-radius: 2px;
+        height: 2px;
+        width: 6px;
+      }
+    }
+  }
+
+  &.rsg__checkbox--someChecked.rsg__checkbox--disabled {
+    .rsg__checkbox__button {
+      box-shadow: none;
+
+      .rsg__checkbox__mark {
+        background-color: $white;
+      }
+    }
+  }
+
+  &.rsg__checkbox--checked.rsg__checkbox--disabled,
+  &.rsg__checkbox--disabled {
+    cursor: not-allowed;
+
+    .rsg__checkbox__label {
+      cursor: not-allowed;
+      color: $grey;
+    }
+
+    .rsg__checkbox__button {
+      cursor: not-allowed;
+      background-color: $greyLight;
+      border-color: $borderColor;
+      box-shadow: none;
+
+      .rsg__checkbox__mark {
+        background-color: $greySmoke;
+      }
+    }
+  }
+
+  &.rsg__checkbox--block {
+    display: block;
+    width: 100%;
+
+    .rsg__checkbox__label {
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}

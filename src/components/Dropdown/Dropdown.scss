@@ -1,0 +1,213 @@
+@import '../../styles/config';
+
+.rsg__dropdown {
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  outline: none;
+
+  &.rsg__dropdown--block {
+    width: 100%;
+
+    .rsg__button__inner {
+      text-align: center;
+      padding-right: 15px;
+    }
+
+    .rsg__dropdown__icon {
+      position: absolute;
+      right: $padding;
+    }
+  }
+
+  &.rsg__dropdown--open {
+    .rsg__dropdown__icon {
+      fill: $primary;
+      transform: rotate(180deg);
+    }
+
+    .rsg__dropdown__wrapper {
+      display: block;
+      animation-name: rsg__slideIn;
+    }
+  }
+
+  &.rsg__dropdown--right {
+    .rsg__dropdown__wrapper {
+      right: 0;
+      left: auto;
+    }
+  }
+
+  &.rsg__dropdown--center {
+    .rsg__dropdown__wrapper {
+      right: auto;
+      left: 50%;
+      transform: translateX(-50%);
+
+      .rsg__menuItem {
+        text-align: center;
+      }
+    }
+  }
+
+  &.rsg__dropdown--top {
+    .rsg__dropdown__wrapper {
+      top: auto;
+      bottom: 100%;
+      transform-origin: bottom center;
+    }
+  }
+
+  &.rsg__dropdown--touched:not(.rsg__dropdown--open) {
+    .rsg__dropdown__wrapper {
+      animation-name: rsg__slideOut;
+    }
+  }
+
+  &.rsg__dropdown--withSearch {
+    .rsg__dropdown__menu {
+      border-radius: 0;
+
+      .rsg__menuItem {
+        border-radius: 0;
+      }
+    }
+  }
+
+  &.rsg__dropdown--error {
+    .rsg__dropdown__button {
+      border-color: $danger;
+      background-color: $dangerSmoke;
+      color: $danger;
+
+      &:hover,
+      &:active,
+      &:focus {
+        .rsg__dropdown__icon {
+          fill: $danger;
+        }
+      }
+
+      .rsg__dropdown__icon {
+        fill: $danger;
+      }
+    }
+  }
+
+  .rsg__dropdown__button {
+    white-space: nowrap;
+    position: relative;
+
+    &:focus,
+    &:active {
+      .rsg__dropdown__icon {
+        fill: $primary;
+      }
+    }
+  }
+
+  .rsg__dropdown__icon {
+    display: inline-block;
+    fill: $greyDark;
+    transform-origin: 50% 50%;
+    transition: transform $speed ease;
+  }
+
+  .rsg__dropdown__label {
+    display: inline-block;
+    padding-right: $paddingExtraSmall;
+  }
+
+  .rsg__dropdown__labelIcon {
+    display: inline-block;
+    margin-right: $paddingExtraSmall;
+  }
+
+  .rsg__dropdown__wrapper {
+    animation-duration: $speed;
+    animation-fill-mode: both;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    background-color: $white;
+    border-radius: $radius;
+    border: 1px solid $borderColor;
+    box-shadow: $shadow;
+    font-size: $fontSizeNormal;
+    left: 0;
+    margin: 0;
+    opacity: 0;
+    outline: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    right: auto;
+    text-align: left;
+    top: 100%;
+    transform-origin: top center;
+    transform: scaleY(0);
+    transition: opacity $speed ease;
+    min-width: $minWidthMenu;
+    width: 100%;
+    will-change: transform, opacity;
+    z-index: $zindex-dropdown;
+    /* IE11: fix blurry rendering bug */
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      overflow: visible;
+    }
+  }
+
+  .rsg__dropdown__menu {
+    display: block;
+    max-height: 182px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+    border: none;
+    box-shadow: none;
+
+    .rsg__checkbox {
+      max-width: calc(100% + 20px);
+      margin: -6px -10px;
+      padding: 6px 10px;
+
+      .rsg__checkbox__label {
+        width: 100%;
+        padding-right: 0;
+        margin-bottom: 0;
+      }
+    }
+
+    .rsg__checkbox__label {
+      font-size: $fontSizeSmall;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      max-width: 100%;
+    }
+  }
+
+  @each $color, $colorValue in $colors {
+    &.rsg__dropdown--#{$color} {
+      .rsg__dropdown__button {
+        .rsg__dropdown__icon {
+          fill: $white;
+          @if (lightness($colorValue) > 45) {
+            fill: mix($colorValue, $black, 75%);
+          }
+        }
+
+        &:hover,
+        &:active {
+          .rsg__dropdown__icon {
+            fill: $white;
+            @if (lightness($colorValue) > 45) {
+              fill: mix($colorValue, $black, 60%);
+            }
+          }
+        }
+      }
+    }
+  }
+}

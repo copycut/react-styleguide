@@ -1,0 +1,111 @@
+@import '../../styles/config';
+
+.rsg__buttonGroup {
+  box-sizing: border-box;
+  display: inline-flex;
+  vertical-align: middle;
+  margin: 0 auto;
+  white-space: nowrap;
+
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  > .rsg__button,
+  > .rsg__dropdown,
+  > .rsg__select,
+  > .rsg__input__wrapper {
+    & + .rsg__button,
+    & + .rsg__select,
+    & + .rsg__dropdown {
+      margin-left: -1px;
+    }
+  }
+
+  > .rsg__input__wrapper {
+    margin-left: -1px;
+  }
+
+  > .rsg__search {
+    margin-left: -1px;
+
+    &:not(:only-child) {
+      &:first-child .rsg__input {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      &:last-child .rsg__input {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+
+      &:not(:first-child):not(:last-child) .rsg__input {
+        border-radius: 0;
+      }
+    }
+  }
+
+  > .rsg__button,
+  > .rsg__dropdown,
+  > .rsg__select,
+  > .rsg__input__wrapper {
+    &:not(:only-child) {
+      &:first-child,
+      &:first-child > .rsg__button,
+      &:first-child > .rsg__dropdown .rsg__button,
+      &:first-child > .rsg__input {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      &:last-child,
+      &:last-child > .rsg__button,
+      &:last-child > .rsg__dropdown .rsg__button,
+      &:last-child > .rsg__input {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+
+      &:not(:first-child):not(:last-child),
+      &:not(:first-child):not(:last-child) > .rsg__button,
+      &:not(:first-child):not(:last-child) > .rsg__dropdown .rsg__button,
+      &:not(:first-child):not(:last-child) > .rsg__input {
+        border-radius: 0;
+      }
+    }
+  }
+
+  &.rsg__buttonGroup--block {
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+
+    .rsg__button,
+    .rsg__input {
+      max-width: 100%;
+
+      .rsg__button__inner {
+        width: 100%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        padding: 1px;
+      }
+    }
+
+    @for $i from 1 through 12 {
+      &.rsg__buttonGroup--block--#{$i} {
+        > .rsg__button,
+        > .rsg__dropdown,
+        > .rsg__input,
+        > .rsg__search,
+        > .rsg__input__wrapper {
+          width: 100 / $i + '%';
+        }
+      }
+    }
+  }
+}

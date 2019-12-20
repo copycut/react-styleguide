@@ -1,0 +1,43 @@
+@import '../../styles/config';
+
+.rsg__title {
+  box-sizing: border-box;
+  display: block;
+  font-family: $sansSerif;
+  font-size: $fontSizeTitle;
+  font-weight: $fontWeightLight;
+  margin: 0;
+  padding: 0;
+  color: $textColor;
+  line-height: $lineHeightLarge;
+
+  strong {
+    font-weight: $fontWeightNormal;
+  }
+
+  &.rsg__title--level-2 {
+    font-size: round($fontSizeExtraLarge * 1.5);
+  }
+
+  &.rsg__title--level-3 {
+    font-size: $fontSizeExtraLarge;
+  }
+
+  &.rsg__title--level-4 {
+    font-size: $fontSizeLarge;
+  }
+
+  &.rsg__title--level-5 {
+    font-size: $fontSizeNormal;
+  }
+
+  &.rsg__title--level-6 {
+    font-size: $fontSizeSmall;
+    font-weight: $fontWeightNormal;
+    color: $greyMedium;
+
+    strong {
+      font-weight: $fontWeightBold;
+    }
+  }
+}

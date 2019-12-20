@@ -1,0 +1,9 @@
+.rsg__options {
+  box-sizing: border-box;
+
+  &.rsg__options--horizontal {
+    .rsg__icon--options {
+      transform: rotate(90deg);
+    }
+  }
+}

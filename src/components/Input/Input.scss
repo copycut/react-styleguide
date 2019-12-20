@@ -1,0 +1,178 @@
+@import '../../styles/config';
+
+@mixin inputSizesBuilder($map: ()) {
+  padding: map-get($map, 'padding');
+  font-size: map-get($map, 'font-size');
+  height: map-get($map, 'height');
+}
+
+$InputSizes: (
+  extraSmall: (
+    padding: 0 $paddingExtraSmall,
+    font-size: $fontSizeExtraSmall,
+    height: 27px
+  ),
+  small: (
+    padding: 0 $paddingSmall,
+    font-size: $fontSizeSmall,
+    height: 30px
+  ),
+  normal: (
+    padding: 0 $padding,
+    font-size: $fontSizeNormal,
+    height: 41px
+  ),
+  large: (
+    padding: 0 $paddingLarge,
+    font-size: $fontSizeLarge,
+    height: 54px
+  ),
+  extraLarge: (
+    padding: 0 $paddingExtraLarge,
+    font-size: $fontSizeExtraLarge,
+    height: 86px
+  )
+);
+
+@mixin inputRadiusBuilder($map: ()) {
+  border-radius: map-get($map, 'border-radius');
+}
+
+$inputRadius: (
+  extraSmall: (
+    border-radius: 13px
+  ),
+  small: (
+    border-radius: 15px
+  ),
+  normal: (
+    border-radius: 20px
+  ),
+  large: (
+    border-radius: 27px
+  ),
+  extraLarge: (
+    border-radius: 43px
+  )
+);
+
+.rsg__input__wrapper {
+  display: inline-block;
+  box-sizing: border-box;
+  position: relative;
+
+  &.rsg__input__wrapper--block,
+  &.rsg__input__wrapper--textarea {
+    width: 100%;
+  }
+
+  .rsg__input__errorMessage {
+    padding: $paddingExtraSmall 0;
+  }
+}
+
+.rsg__input {
+  @include inputSizesBuilder(map-get($InputSizes, 'normal'));
+  background-color: $white;
+  border-color: $borderColor;
+  border-radius: $radius;
+  border-style: solid;
+  border-width: 1px;
+  box-sizing: border-box;
+  color: $textColor;
+  cursor: text;
+  display: inline-block;
+  font-family: $sansSerif;
+  font-weight: $fontWeightLight;
+  line-height: normal;
+  text-decoration: none;
+  vertical-align: middle;
+  transition: background-color $speed $ease, border-color $speed $ease;
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  text-overflow: ellipsis;
+  box-shadow: none;
+
+  &:active,
+  &:focus {
+    z-index: 2;
+  }
+
+  &:focus,
+  &:hover {
+    background-color: $greySmoke;
+
+    .rsg__input__icon {
+      fill: $primary;
+    }
+  }
+
+  &:active,
+  &:focus {
+    color: $primary;
+    border-color: $primary;
+    background-color: $white;
+    outline: none;
+    box-shadow: 0 0 10px rgba($primary, 0.33);
+
+    .rsg__input__icon {
+      fill: $primary;
+    }
+  }
+
+  &.rsg__input--type--color {
+    padding: 0;
+  }
+
+  &.rsg__input--type--date,
+  &.rsg__input--type--time {
+    line-height: 1;
+  }
+
+  @each $sizeLabel, $map in $InputSizes {
+    &.rsg__input--#{$sizeLabel} {
+      @include inputSizesBuilder($map);
+    }
+  }
+
+  &.rsg__input--disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    background-color: $greySmoke;
+    border-color: $greyLight;
+  }
+
+  &.rsg__input--rounded {
+    border-radius: 20px;
+
+    @each $sizeLabel, $map in $inputRadius {
+      &.rsg__input--#{$sizeLabel} {
+        @include inputRadiusBuilder($map);
+      }
+    }
+  }
+
+  &.rsg__input--squared {
+    border-radius: 0;
+  }
+
+  &.rsg__input--block {
+    display: block;
+    width: 100%;
+  }
+
+  &.rsg__input--type--textarea {
+    width: 100%;
+    resize: vertical;
+    min-height: 86px;
+    padding-top: $paddingSmall;
+    padding-bottom: $paddingSmall;
+  }
+
+  &.rsg__input--error {
+    border-color: $danger;
+    color: $danger;
+    background-color: $dangerSmoke;
+  }
+}

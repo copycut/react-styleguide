@@ -1,0 +1,74 @@
+@import '../../styles/config';
+
+.rsg__alert {
+  position: relative;
+  box-sizing: border-box;
+  background-color: $greySmoke;
+  color: $textColor;
+  border: 1px solid $borderColor;
+  padding: $padding;
+  border-radius: $radius;
+  font-family: $sansSerif;
+  font-size: $fontSizeNormal;
+  line-height: $lineHeightNormal;
+  margin: 0 0 $padding 0;
+
+  .rsg__alert__close {
+    box-sizing: content-box;
+    padding: 20px $padding;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    .rsg__icon {
+      fill: $greyDarker;
+    }
+  }
+
+  .rsg__alert__inner {
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+  }
+
+  .rsg__alert__icon {
+    position: absolute;
+    top: 20px;
+    left: $padding;
+  }
+
+  &.rsg__alert--withIcon {
+    .rsg__alert__inner {
+      padding-left: $paddingLarge;
+    }
+  }
+
+  &.rsg__alert--dismissible {
+    .rsg__alert__inner {
+      padding-right: $paddingLarge;
+    }
+  }
+
+  @each $color, $colorValue in $colors {
+    &.rsg__alert--#{$color} {
+      border-color: $colorValue;
+      background-color: $colorValue;
+      color: $greyDarker;
+
+      @if (lightness($colorValue) <= 50) {
+        color: $white;
+
+        .rsg__alert__close .rsg__icon {
+          fill: mix($colorValue, $white);
+        }
+      } @else {
+        color: mix($colorValue, $black);
+
+        .rsg__alert__close .rsg__icon {
+          fill: mix($colorValue, $black);
+        }
+      }
+    }
+  }
+}

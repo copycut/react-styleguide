@@ -1,0 +1,122 @@
+/* source: https://flatuicolors.com/palette/fr by Léa Poisson https://dribbble.com/goldfishlife */
+
+$primarySmoke: #6a89cc; // #f4f9fd;
+$primaryLight: #4a69bd; // #66b1e4;
+$primary: #1e3799; // #3498db;
+$primaryDark: #0c2461; // #2980b9;
+
+$successSmoke: #b8e994; // #f4fcf7;
+$successLight: #78e08f; // #62d894;
+$success: #38ada9; // #2ecc71;
+$successDark: #079992; // #27ae60;
+
+$warningSmoke: #fad390; // #fefcf3;
+$warningLight: #f6b93b; //  #f4d24b;
+$warning: #fa983a; // #f1c40f;
+$warningDark: #e58e26; // #f39c12;
+
+$dangerSmoke: #f8c291; // #fdf6f5;
+$dangerLight: #e55039; // #ed786c;
+$danger: #eb2f06; // #e74c3c;
+$dangerDark: #b71540; // #c0392b;
+
+$infoSmoke: #82ccdd; // #f3fbfa;
+$infoLight: #60a3bc; // #53ccb4;
+$info: #3c6382; // #1abc9c;
+$infoDark: #0a3d62; // #16a085;
+
+$extraSmoke: #fda7df; // #faf6fb;
+$extraLight: #d980fa; // #b482c8;
+$extra: #9980fa; // #9b59b6;
+$extraDark: #5758bb; // #8e44ad;
+
+$white: #ffffff;
+$greySmoke: #bdc3c7;
+$grey: #95a5a6;
+$greyLight: mix($grey, $greySmoke);
+$greyMedium: #7f8c8d;
+$greyDark: #34495e;
+$greyDarker: #2c3e50;
+$black: #000000;
+
+// Shorthands
+$borderColor: mix($greyLight, $greySmoke);
+$textColor: $greyDarker;
+
+$shadow: 0 3px 6px rgba($black, 0.15);
+$shadowReverse: 0 -3px 6px rgba($black, 0.15);
+$shadowLarge: 0 6px 12px rgba($black, 0.15);
+
+$colors: (
+  'primarySmoke': $primarySmoke,
+  'primaryLight': $primaryLight,
+  'primary': $primary,
+  'primaryDark': $primaryDark,
+  'successSmoke': $successSmoke,
+  'successLight': $successLight,
+  'success': $success,
+  'successDark': $successDark,
+  'warningSmoke': $warningSmoke,
+  'warningLight': $warningLight,
+  'warning': $warning,
+  'warningDark': $warningDark,
+  'dangerSmoke': $dangerSmoke,
+  'dangerLight': $dangerLight,
+  'danger': $danger,
+  'dangerDark': $dangerDark,
+  'infoSmoke': $infoSmoke,
+  'infoLight': $infoLight,
+  'info': $info,
+  'infoDark': $infoDark,
+  'extraSmoke': $extraSmoke,
+  'extraLight': $extraLight,
+  'extra': $extra,
+  'extraDark': $extraDark,
+  'white': $white,
+  'greySmoke': $greySmoke,
+  'grey': $grey,
+  'greyLight': $greyLight,
+  'greyMedium': $greyMedium,
+  'greyDark': $greyDark,
+  'greyDarker': $greyDarker,
+  'black': $black
+);
+
+$primaryColors: (
+  'primary': $primary,
+  'success': $success,
+  'warning': $warning,
+  'danger': $danger,
+  'info': $info,
+  'extra': $extra
+);
+
+$smokedColors: (
+  'greySmoke': $greySmoke,
+  'primarySmoke': $primarySmoke,
+  'successSmoke': $successSmoke,
+  'warningSmoke': $warningSmoke,
+  'dangerSmoke': $dangerSmoke,
+  'infoSmoke': $infoSmoke,
+  'extraSmoke': $extraSmoke
+);
+
+$lightColors: (
+  'greyLight': $greyLight,
+  'primaryLight': $primaryLight,
+  'successLight': $successLight,
+  'warningLight': $warningLight,
+  'dangerLight': $dangerLight,
+  'infoLight': $infoLight,
+  'extraLight': $extraLight
+);
+
+$darkColors: (
+  'greyDark': $greyDark,
+  'primaryDark': $primaryDark,
+  'successDark': $successDark,
+  'warningDark': $warningDark,
+  'dangerDark': $dangerDark,
+  'infoDark': $infoDark,
+  'extraDark': $extraDark
+);

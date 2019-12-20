@@ -1,0 +1,258 @@
+@import '../../styles/config';
+
+@mixin buttonSizesBuilder($map: ()) {
+  padding: map-get($map, 'padding');
+  font-size: map-get($map, 'font-size');
+  height: map-get($map, 'height');
+}
+
+$buttonSizes: (
+  extraSmall: (
+    padding: $paddingExtraSmall,
+    font-size: $fontSizeExtraSmall,
+    height: 29px
+  ),
+  small: (
+    padding: $paddingExtraSmall $paddingSmall,
+    font-size: $fontSizeSmall,
+    height: 31px
+  ),
+  normal: (
+    padding: $paddingSmall $padding,
+    font-size: $fontSizeNormal,
+    height: 41px
+  ),
+  large: (
+    padding: $padding $paddingLarge,
+    font-size: $fontSizeLarge,
+    height: 56px
+  ),
+  extraLarge: (
+    padding: $paddingLarge $paddingExtraLarge,
+    font-size: $fontSizeExtraLarge,
+    height: 88px
+  )
+);
+
+@mixin buttonRadiusBuilder($map: ()) {
+  border-radius: map-get($map, 'border-radius');
+}
+
+$buttonRadius: (
+  extraSmall: (
+    border-radius: 13px
+  ),
+  small: (
+    border-radius: 15px
+  ),
+  normal: (
+    border-radius: 20px
+  ),
+  large: (
+    border-radius: 27px
+  ),
+  extraLarge: (
+    border-radius: 43px
+  )
+);
+
+.rsg__button {
+  @include buttonSizesBuilder(map-get($buttonSizes, 'normal'));
+  background-color: $white;
+  border-color: $borderColor;
+  border-radius: $radius;
+  border-style: solid;
+  border-width: 1px;
+  box-sizing: border-box;
+  color: $textColor;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $sansSerif;
+  font-weight: $fontWeightLight;
+  line-height: $lineHeightExtraSmall;
+  text-decoration: none;
+  vertical-align: middle;
+  transition: background-color $speed $ease, border-color $speed $ease;
+  position: relative;
+  z-index: 1;
+  margin: 0;
+
+  &.rsg__button--active,
+  &:active,
+  &:focus {
+    z-index: 2;
+  }
+
+  &:focus,
+  &:hover {
+    background-color: $greySmoke;
+
+    .rsg__button__icon {
+      fill: $primary;
+    }
+  }
+
+  &.rsg__button--active,
+  &:active,
+  &:focus {
+    color: $primary;
+    border-color: $primary;
+    background-color: $white;
+    outline: none;
+    box-shadow: 0 0 10px rgba($primary, 0.33);
+
+    .rsg__button__icon {
+      fill: $primary;
+    }
+  }
+
+  &.rsg__button__anchor {
+    line-height: 1;
+  }
+
+  @each $sizeLabel, $map in $buttonSizes {
+    &.rsg__button--#{$sizeLabel} {
+      @include buttonSizesBuilder($map);
+    }
+  }
+
+  @each $color, $colorValue in $colors {
+    &.rsg__button--#{$color} {
+      border-color: $colorValue;
+      background-color: $colorValue;
+      color: $white;
+
+      &:focus,
+      &:hover {
+        background-color: mix($colorValue, $black, 90%);
+        border-color: mix($colorValue, $black, 90%);
+      }
+
+      &:active,
+      &.rsg__button--active {
+        background-color: mix($colorValue, $white, 90%);
+        border-color: mix($colorValue, $white, 90%);
+      }
+    }
+  }
+
+  @each $color, $colorValue in $primaryColors {
+    &.rsg__button--#{$color} {
+      .rsg__button__icon {
+        fill: $white;
+      }
+    }
+  }
+
+  @each $color, $colorValue in $smokedColors {
+    &.rsg__button--#{$color} {
+      color: $textColor;
+    }
+  }
+
+  &.rsg__button--link {
+    color: $primary;
+    background-color: transparent;
+    border-color: transparent;
+    text-decoration: underline;
+
+    &:focus,
+    &:hover {
+      background-color: transparent;
+      border-color: transparent;
+      color: $primaryDark;
+      box-shadow: none;
+    }
+
+    &:active,
+    &.rsg__button--active {
+      background-color: transparent;
+      border-color: transparent;
+      color: $primaryLight;
+      box-shadow: none;
+    }
+
+    .rsg__button__icon {
+      fill: $primary;
+    }
+  }
+
+  &.rsg__button--disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &.rsg__button--rounded {
+    border-radius: 20px;
+
+    @each $sizeLabel, $map in $buttonRadius {
+      &.rsg__button--#{$sizeLabel} {
+        @include buttonRadiusBuilder($map);
+      }
+    }
+  }
+
+  &.rsg__button--invisible {
+    background: transparent;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    color: inherit;
+    cursor: pointer;
+    display: inline-block;
+    height: auto;
+    margin: 0;
+    min-height: 0;
+    opacity: 1;
+    outline: none;
+    padding: 0;
+    line-height: $lineHeightExtraSmall;
+    text-decoration: none;
+    width: auto;
+    font-size: inherit;
+    vertical-align: middle;
+
+    .rsg__icon {
+      margin: 0;
+    }
+  }
+
+  &.rsg__button--block {
+    display: block;
+    width: 100%;
+
+    .rsg__button__inner {
+      width: 100%;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      padding: 1px;
+    }
+
+    .rsg__icon + .rsg__button__label {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: calc(100% - 26px);
+    }
+  }
+
+  .rsg__button__inner {
+    box-sizing: border-box;
+    display: inline-block;
+    line-height: 1;
+  }
+
+  .rsg__button__icon {
+    fill: $greyDark;
+  }
+
+  .rsg__icon + .rsg__button__label {
+    margin-left: 10px;
+  }
+
+  .rsg__button__label {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}

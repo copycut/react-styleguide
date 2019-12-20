@@ -1,0 +1,90 @@
+@import '../../styles/config';
+
+.rsg__listGroupItem {
+  box-sizing: border-box;
+  display: block;
+  padding: $paddingSmall $padding;
+  margin: 0 0 -1px 0;
+  border: 1px solid $borderColor;
+  font-size: $fontSizeNormal;
+  line-height: $lineHeightNormal;
+  font-family: $sansSerif;
+  font-weight: $fontWeightNormal;
+  background-color: $white;
+
+  .rsg__listGroupItem__link {
+    display: block;
+    color: $primary;
+    background-color: $white;
+    margin: (-$paddingSmall) (-$padding);
+    padding: $paddingSmall $padding;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:focus,
+    &:hover {
+      background-color: $primary;
+      color: $white;
+    }
+
+    &:active {
+      background-color: $primaryDark;
+      color: $white;
+    }
+  }
+
+  &:first-child {
+    border-top-left-radius: $radius;
+    border-top-right-radius: $radius;
+    .rsg__listGroupItem__link {
+      border-top-left-radius: ($radius - 1);
+      border-top-right-radius: ($radius - 1);
+    }
+  }
+
+  &:last-child {
+    border-bottom-left-radius: $radius;
+    border-bottom-right-radius: $radius;
+    .rsg__listGroupItem__link {
+      border-bottom-left-radius: ($radius - 1);
+      border-bottom-right-radius: ($radius - 1);
+    }
+  }
+
+  &.rsg__listGroupItem--active,
+  &.rsg__listGroupItem--active .rsg__listGroupItem__link {
+    background-color: $primary;
+    color: $white;
+  }
+
+  &.rsg__listGroupItem--disabled,
+  &.rsg__listGroupItem--disabled .rsg__listGroupItem__link {
+    background-color: $greySmoke;
+    color: $greyMedium;
+    cursor: not-allowed;
+  }
+
+  .rsg__listGroupItem__heading {
+    padding: 0;
+    margin: 0;
+    font-size: $fontSizeExtraLarge;
+    font-family: $sansSerif;
+    font-weight: $fontWeightNormal;
+    line-height: $lineHeightNormal;
+  }
+
+  &.rsg__listGroupItem--clickable {
+    cursor: pointer;
+
+    &:focus,
+    &:hover {
+      background-color: $primary;
+      color: $white;
+    }
+
+    &:active {
+      background-color: $primaryDark;
+      color: $white;
+    }
+  }
+}

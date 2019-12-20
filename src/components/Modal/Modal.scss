@@ -1,0 +1,176 @@
+@import '../../styles/config';
+
+.rsg__modal {
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  user-select: none;
+  pointer-events: none;
+  align-items: center;
+  justify-content: center;
+  z-index: $zindex-modal;
+  overflow: hidden;
+
+  .rsg__modal__box {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: $zindex-modal;
+    background-color: $white;
+    border-radius: $radius;
+    box-shadow: $shadow;
+    width: 100%;
+    max-width: 95%;
+    max-height: calc(100vh - $padding);
+    /*zoom*/
+    animation-duration: $speed;
+    animation-fill-mode: both;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    transform-origin: center center;
+    opacity: 0;
+    border: 1px solid $borderColor;
+    will-change: transform;
+
+    @media screen and (min-width: $tablet) {
+      max-height: calc(100vh - 160px);
+      max-width: 640px;
+    }
+
+    .rsg__modal__close {
+      line-height: $lineHeightExtraSmall;
+      opacity: 0.5;
+      padding: $padding;
+      position: absolute;
+      right: 0;
+      top: 0;
+      user-select: none;
+
+      &:active,
+      &:focus,
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  .rsg__modal__title {
+    text-align: left;
+    padding: $padding $padding $paddingExtraSmall $padding;
+    line-height: $lineHeightSmall;
+
+    &.rsg__modal__title--center {
+      text-align: center;
+    }
+
+    &.rsg__modal__title--right {
+      text-align: right;
+    }
+  }
+
+  .rsg__modal__content {
+    clear: both;
+    padding: $paddingSmall $padding $padding;
+    color: $greyDarker;
+    font-family: $sansSerif;
+    font-size: $fontSizeNormal;
+    font-weight: $fontWeightNormal;
+    line-height: $lineHeightNormal;
+    text-align: left;
+    max-width: 100%;
+    overflow: auto;
+
+    &::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
+
+  .rsg__modal__footer {
+    padding: $paddingSmall $padding $padding;
+    text-align: left;
+
+    &.rsg__modal__footer--center {
+      text-align: center;
+    }
+
+    &.rsg__modal__footer--right {
+      text-align: right;
+    }
+  }
+}
+
+.rsg__modal {
+  &.rsg__modal--touched {
+    .rsg__modal__box {
+      animation-name: rsg__zoomOut;
+    }
+  }
+
+  &.rsg__modal--open {
+    user-select: auto;
+    pointer-events: auto;
+
+    .rsg__modal__box {
+      animation-name: rsg__zoomIn;
+      transform: none;
+      opacity: 1;
+    }
+  }
+
+  &.rsg__modal--reverse {
+    .rsg__modal__box {
+      background-color: $greyDarker;
+      border: none;
+    }
+
+    .rsg__modal__title {
+      color: $white;
+    }
+
+    .rsg__modal__close .rsg__icon {
+      fill: $white;
+    }
+
+    .rsg__modal__content {
+      color: $white;
+    }
+  }
+
+  &.rsg__modal--extraSmall .rsg__modal__box {
+    max-width: 360px;
+  }
+
+  &.rsg__modal--small .rsg__modal__box {
+    max-width: 540px;
+  }
+
+  &.rsg__modal--normal .rsg__modal__box {
+    max-width: 720px;
+  }
+
+  &.rsg__modal--large .rsg__modal__box {
+    max-width: 900px;
+  }
+
+  &.rsg__modal--extraLarge .rsg__modal__box {
+    max-width: 1080px;
+  }
+
+  &.rsg__modal--max .rsg__modal__box {
+    width: 100%;
+    max-width: 98%;
+  }
+
+  &.rsg__modal--dismissible {
+    .rsg__modal__title {
+      padding-right: $paddingLarge;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+@import '../../styles/config';
+
+.rsg__tab {
+  display: none;
+  box-sizing: border-box;
+  margin-top: -1px;
+  border: 1px solid $borderColor;
+  padding: $padding;
+
+  &.rsg__tab--active {
+    display: block;
+  }
+}

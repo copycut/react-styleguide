@@ -1,0 +1,115 @@
+@import '../../styles/config';
+
+.rsg__popover {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+
+  .rsg__popover__box {
+    background-color: $greySmoke;
+    border-radius: $radius;
+    bottom: 50%;
+    box-shadow: $shadow;
+    left: 50%;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    right: auto;
+    top: auto;
+    transform-origin: center bottom;
+    transform: translateX(-50%) translateY(50%) scale(0);
+    transition: opacity 100ms ease-out, transform 200ms ease-in;
+    z-index: $zindex-popover;
+  }
+
+  &.rsg__popover--active {
+    .rsg__popover__box {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-30px) scale(1);
+      transition: opacity 300ms ease-in, transform 200ms ease-out;
+    }
+  }
+
+  .rsg__popover__trigger {
+    position: relative;
+  }
+
+  .rsg__popover__close {
+    line-height: $lineHeightExtraSmall;
+    opacity: 0.5;
+    padding: $paddingSmall $padding;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    &:active,
+    &:focus,
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .rsg__popover__title {
+    border-bottom: 1px solid $borderColor;
+    line-height: $lineHeightNormal;
+    padding: $paddingSmall $padding;
+    text-align: left;
+  }
+
+  .rsg__popover__inner {
+    background-color: $white;
+    padding: $padding;
+  }
+
+  .rsg__popover__content {
+    color: $greyDarker;
+    font-family: $sansSerif;
+    font-size: $fontSizeSmall;
+    font-weight: $fontWeightNormal;
+    line-height: 1.2;
+    text-align: left;
+  }
+
+  .rsg__popover__button {
+    white-space: nowrap;
+  }
+
+  .rsg__popover__content + .rsg__popover__button {
+    margin-top: $padding;
+  }
+
+  .rsg__popover__close + .rsg__popover__inner {
+    .rsg__popover__content {
+      padding-right: $padding;
+    }
+  }
+
+  &.rsg__popover--dismissible {
+    .rsg__popover__title {
+      padding-right: 40px;
+    }
+  }
+
+  &.rsg__popover--reverse {
+    .rsg__popover__box {
+      background-color: $greyDarker;
+    }
+
+    .rsg__popover__title {
+      border-bottom-color: mix($greyDarker, $black, 70%);
+      color: $white;
+    }
+
+    .rsg__popover__close .rsg__icon {
+      fill: $white;
+    }
+
+    .rsg__popover__inner {
+      background-color: $greyDark;
+    }
+
+    .rsg__popover__content {
+      color: $white;
+    }
+  }
+}
