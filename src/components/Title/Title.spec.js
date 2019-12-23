@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { expect } from 'chai';
 import { render, shallow } from 'enzyme';
@@ -18,7 +17,7 @@ describe('Title', () => {
   });
 
   it('must be a valid html tag', () => {
-    const wrapper = shallow(<Title level />);
+    const wrapper = shallow(<Title />);
     expect(wrapper.type()).to.be.equal('div');
   });
 

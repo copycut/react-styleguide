@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { expect } from 'chai';
 import { render, shallow, mount } from 'enzyme';
@@ -20,7 +19,7 @@ describe('ProgressBar', () => {
 
   it('must return a percentage', () => {
     const wrapper = mount(
-      <ProgressBar current="30" total="100" labelPosition="left" />
+      <ProgressBar current={30} total={100} labelPosition="left" />
     );
     expect(wrapper.find('.sg__progressBar__percentage').text()).to.be.equal(
       '30%'
@@ -29,7 +28,7 @@ describe('ProgressBar', () => {
 
   it('must return a label', () => {
     const wrapper = mount(
-      <ProgressBar current="30" total="100" labelPosition="left" label="test" />
+      <ProgressBar current={30} total={100} labelPosition="left" label="test" />
     );
     expect(wrapper.find('.sg__progressBar__label').text()).to.be.equal('test');
   });

@@ -1,7 +1,7 @@
 import React from 'react';
 import { expect } from 'chai';
 import { render, shallow } from 'enzyme';
-import sinon from 'sinon';
+import { spy } from 'sinon';
 import Alert from './Alert';
 
 describe('Alert', () => {
@@ -11,7 +11,7 @@ describe('Alert', () => {
   });
 
   it('must dispatch action when click', () => {
-    const mockClick = sinon.spy();
+    const mockClick = spy();
     const wrapper = shallow(
       <Alert isDismissible onDismiss={mockClick}>
         test
