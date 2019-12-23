@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-// const CleanWebpackPlugin = require('clean-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const env = JSON.stringify(process.env.NODE_ENV || 'development');
 
@@ -85,16 +84,10 @@ module.exports = {
     minimize: env !== 'development'
   },
   plugins: [
-    // new CleanWebpackPlugin(['build'], {
-    //   exclude: ['package.json']
-    // }),
     new ExtractTextPlugin({
       filename: 'styleguide.css',
       allChunks: true
     }),
-    new webpack.DefinePlugin({ 'process.env.NODE_ENV': env }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true
-    })
+    new webpack.DefinePlugin({ 'process.env.NODE_ENV': env })
   ]
 };
