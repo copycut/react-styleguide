@@ -25,13 +25,8 @@ export default class Title extends Component {
       this.props.className
     );
 
-    let element = 'div';
-
-    if (isTitleLevel) {
-      element = `h${this.props.level}`;
-    }
     return React.createElement(
-      element,
+      isTitleLevel ? `h${this.props.level}` : 'div',
       {
         ...omit(this.props, 'level', 'className', 'children'),
         className: classNames

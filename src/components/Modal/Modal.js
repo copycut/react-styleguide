@@ -5,7 +5,6 @@ import Backdrop from '@styleguide/src/components/Backdrop';
 import Button from '@styleguide/src/components/Button';
 import Title from '@styleguide/src/components/Title';
 import './Modal.scss';
-import { MODAL } from '@styleguide/src/constants/classnames';
 
 export default class Modal extends Component {
   static propTypes = {
@@ -39,25 +38,13 @@ export default class Modal extends Component {
   };
 
   componentDidMount() {
-    const { isOpen } = this.props;
-    if (isOpen !== undefined) {
-      this.setState({ isOpen });
+    if (typeof this.props.isOpen !== 'undefined') {
+      this.setState({ isOpen: this.props.isOpen });
     }
   }
 
-  // componentWillReceiveProps(newProps) {
-  //   if (newProps !== null && newProps.isOpen !== this.props.isOpen) {
-  //     return this.setState({
-  //       isOpen: newProps.isOpen,
-  //       isPristine: false
-  //     });
-  //   }
-  // }
-
-  close = () => {
-    const { onDismiss, isDismissible } = this.props;
-
-    if (!isDismissible) {
+  close = event => {
+    if (!this.props.isDismissible) {
       return;
     }
 
@@ -66,25 +53,25 @@ export default class Modal extends Component {
       isPristine: false
     });
 
-    if (onDismiss) {
-      return onDismiss();
+    if (this.props.onDismiss) {
+      return this.props.onDismiss(event);
     }
   };
 
   renderTitle() {
-    const { title, titleDirection, titleLevel } = this.props;
-
-    if (!title) {
+    if (!this.props.title) {
       return;
     }
 
-    const titleClassName = classnames(`${MODAL}__title`, {
-      [`${MODAL}__title--${titleDirection}`]: titleDirection
+    const titleClassName = classnames({
+      rsg__modal__title: true,
+      [`rsg__modal__title--${this.props.titleDirection}`]: this.props
+        .titleDirection
     });
 
     return (
-      <Title level={titleLevel || 4} className={titleClassName}>
-        {title}
+      <Title level={this.props.titleLevel || 4} className={titleClassName}>
+        {this.props.title}
       </Title>
     );
   }
@@ -96,7 +83,7 @@ export default class Modal extends Component {
 
     return (
       <Button
-        className={`${MODAL}__close`}
+        className="rsg__modal__close"
         color="invisible"
         icon="cross"
         onClick={this.close}
@@ -105,9 +92,7 @@ export default class Modal extends Component {
   }
 
   renderBackDrop() {
-    const { hasBackdrop } = this.props;
-
-    if (!hasBackdrop) {
+    if (!this.props.hasBackdrop) {
       return;
     }
 
@@ -115,48 +100,38 @@ export default class Modal extends Component {
   }
 
   renderFooter() {
-    const { footer, footerDirection } = this.props;
-
-    if (!footer) {
+    if (!this.props.footer && !React.isValidElement(this.props.footer)) {
       return;
     }
 
-    const footerClassName = classnames(`${MODAL}__footer`, {
-      [`${MODAL}__footer--${footerDirection}`]: footerDirection
+    const footerClassName = classnames({
+      rsg__modal__footer: true,
+      [`rsg__modal__footer--${this.props.footerDirection}`]: this.props
+        .footerDirection
     });
 
-    return <div className={footerClassName}>{footer}</div>;
+    return <div className={footerClassName}>{this.props.footer}</div>;
   }
 
   render() {
-    const {
-      children,
-      className,
-      isDismissible,
-      isReverse,
-      width,
-      style,
-      id
-    } = this.props;
-    const { isOpen, isPristine } = this.state;
     const classNames = classnames(
-      MODAL,
       {
-        [`${MODAL}--open`]: isOpen,
-        [`${MODAL}--dismissible`]: isDismissible,
-        [`${MODAL}--reverse`]: isReverse,
-        [`${MODAL}--touched`]: !isPristine,
-        [`${MODAL}--${width}`]: width
+        rsg__modal: true,
+        'rsg__modal--open': this.state.isOpen,
+        'rsg__modal--dismissible': this.props.isDismissible,
+        'rsg__modal--reverse': this.props.isReverse,
+        'rsg__modal--touched': !this.state.isPristine,
+        [`rsg__modal--${this.props.width}`]: this.props.width
       },
-      className
+      this.props.className
     );
 
     return (
-      <div className={classNames} style={style} id={id}>
-        <div className={`${MODAL}__box`}>
+      <div className={classNames} style={this.props.style} id={this.props.id}>
+        <div className="rsg__modal__box">
           {this.renderClose()}
           {this.renderTitle()}
-          <div className={`${MODAL}__content`}>{children}</div>
+          <div className="rsg__modal__content">{this.props.children}</div>
           {this.renderFooter()}
         </div>
         {this.renderBackDrop()}

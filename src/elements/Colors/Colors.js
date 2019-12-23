@@ -11,8 +11,10 @@ export default class Colors extends Component {
   };
 
   render() {
-    const { color, id } = this.props;
-    const classNames = classnames({ color: true, [`color--${color}`]: color });
+    const classNames = classnames({
+      color: true,
+      [`color--${this.props.color}`]: this.props.color
+    });
 
     const colorValues = {
       primarySmoke: '#f4f9fd',
@@ -50,10 +52,10 @@ export default class Colors extends Component {
     };
 
     return (
-      <div className={classNames} id={id}>
+      <div className={classNames} id={this.props.id}>
         <span className="color--text">
-          <span className="color--name">{color}</span>
-          <span className="color--hexa">{colorValues[color]}</span>
+          <span className="color--name">{this.props.color}</span>
+          <span className="color--hexa">{colorValues[this.props.color]}</span>
         </span>
       </div>
     );

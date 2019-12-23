@@ -18,7 +18,8 @@
     padding: 20px $padding;
     position: absolute;
     right: 0;
-    top: 0;
+    top: 50%;
+    transform: translateY(-50%);
 
     .rsg__icon {
       fill: $greyDarker;
@@ -34,7 +35,8 @@
 
   .rsg__alert__icon {
     position: absolute;
-    top: 20px;
+    top: 50%;
+    transform: translateY(-50%);
     left: $padding;
   }
 

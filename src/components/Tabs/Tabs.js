@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import castArray from 'lodash/castArray';
 import Tab from '@styleguide/src/components/Tab';
 import Button from '@styleguide/src/components/Button';
 import './Tabs.scss';
@@ -18,6 +17,10 @@ export default class Tabs extends Component {
     id: PropTypes.string
   };
 
+  static defaultProps = {
+    children: []
+  };
+
   isActive = index => this.props.tabActive === index;
 
   renderTabButton = (child, index) => {
@@ -27,7 +30,7 @@ export default class Tabs extends Component {
 
     return (
       <Button
-        className="rsg__tab__button"
+        className="rsg__tabs__button"
         isActive={this.isActive(index)}
         key={`tab-${index}`}
         isDisabled={child.props.isDisabled}
@@ -68,20 +71,20 @@ export default class Tabs extends Component {
   };
 
   render() {
-    const children = castArray(this.props.children);
+    const childrenCount = React.Children.count(this.props.children);
     const classNames = classnames(
       {
-        rsg__tab: true,
-        'rsg__tab--block': this.props.isBlock,
-        [`rsg__tab--block--${children.length}`]: children.length
+        rsg__tabs: true,
+        'rsg__tabs--block': this.props.isBlock,
+        [`rsg__tabs--block--${childrenCount}`]: childrenCount
       },
       this.props.className
     );
 
     return (
       <div className={classNames} style={this.props.style} id={this.props.id}>
-        {children.map(this.renderTabButton)}
-        {children.map(this.renderTabContent)}
+        {this.props.children.map(this.renderTabButton)}
+        {this.props.children.map(this.renderTabContent)}
       </div>
     );
   }

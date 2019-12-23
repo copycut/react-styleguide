@@ -8,7 +8,7 @@ import './Rating.scss';
 export default class Rating extends Component {
   static propTypes = {
     className: PropTypes.string,
-    style: PropTypes.string,
+    style: PropTypes.object,
     value: PropTypes.number,
     max: PropTypes.number,
     icon: PropTypes.string,

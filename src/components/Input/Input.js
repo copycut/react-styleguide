@@ -33,7 +33,8 @@ export default class Input extends Component {
       'password',
       'textarea'
     ]),
-    value: PropTypes.string
+    value: PropTypes.string,
+    slot: PropTypes.node
   };
 
   renderErrorMessage() {
@@ -104,21 +105,24 @@ export default class Input extends Component {
     }
 
     return (
-      <div className={wrapperClassName} style={this.props.style}>
+      <React.Fragment>
         {this.renderErrorMessage()}
-        <input
-          {...extraProps}
-          className={classNames}
-          disabled={this.props.isDisabled}
-          id={this.props.id}
-          onChange={this.props.onChange}
-          placeholder={this.props.placeholder}
-          type={type}
-          title={this.props.title}
-          value={this.props.value}
-          defaultValue={this.props.defaultValue}
-        />
-      </div>
+        <div className={wrapperClassName} style={this.props.style}>
+          <input
+            {...extraProps}
+            className={classNames}
+            disabled={this.props.isDisabled}
+            id={this.props.id}
+            onChange={this.props.onChange}
+            placeholder={this.props.placeholder}
+            type={type}
+            title={this.props.title}
+            value={this.props.value}
+            defaultValue={this.props.defaultValue}
+          />
+          {this.props.slot}
+        </div>
+      </React.Fragment>
     );
   }
 }

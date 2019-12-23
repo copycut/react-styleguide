@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import _ from 'lodash';
+import clamp from 'lodash/clamp';
+import compact from 'lodash/compact';
 import Button from '@styleguide/src/components/Button';
 import ButtonGroup from '@styleguide/src/components/ButtonGroup';
 import Input from '@styleguide/src/components/Input';
 import Text from '@styleguide/src/components/Text';
 import Note from '@styleguide/src/components/Note';
-import './Pagination.scss';
 import { SIZES } from '@styleguide/src/constants/sizes';
-import { PAGINATION } from '@styleguide/src/constants/classnames';
+import './Pagination.scss';
 
 export default class Pagination extends Component {
   static propTypes = {
-    itemsCount: PropTypes.number.isRequired,
-    itemsPerPage: PropTypes.number.isRequired,
-    onChange: PropTypes.func.isRequired,
+    itemsCount: PropTypes.number,
+    itemsPerPage: PropTypes.number,
+    onChange: PropTypes.func,
     activePage: PropTypes.number,
     className: PropTypes.string,
     size: PropTypes.oneOf(SIZES),
@@ -49,10 +49,6 @@ export default class Pagination extends Component {
     this.state = this.getStateFromProps(props);
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   this.setState(this.getStateFromProps(nextProps));
-  // }
-
   getStateFromProps(props) {
     const { activePage, itemsCount, itemsPerPage } = props;
     const pagesCount = Math.ceil(itemsCount / itemsPerPage);
@@ -68,7 +64,7 @@ export default class Pagination extends Component {
 
     if (event.target.value) {
       const pageNum = parseInt(event.target.value, 10);
-      value = _.clamp(pageNum, 1, this.state.pagesCount).toString();
+      value = clamp(pageNum, 1, this.state.pagesCount).toString();
     }
 
     this.setState({ pageInfoValue: value });
@@ -78,31 +74,24 @@ export default class Pagination extends Component {
     event && event.preventDefault();
 
     if (this.state.pageInfoValue) {
-      this.props.onChange(parseInt(this.state.pageInfoValue, 10));
+      this.props.onChange(parseInt(this.state.pageInfoValue, 10), event);
     }
   };
 
   renderActionButton(action) {
-    const { activePage, onChange } = this.props;
-    const { pagesCount } = this.state;
-
     let gotoPage;
     let isDisabled;
 
     if (action === 'prev' || action === 'first') {
-      isDisabled = activePage <= 1;
-      if (action === 'prev') {
-        gotoPage = Math.max(activePage - 1, 1);
-      } else {
-        gotoPage = 1;
-      }
+      isDisabled = this.props.activePage <= 1;
+      gotoPage = action === 'prev' ? Math.max(this.props.activePage - 1, 1) : 1;
     } else if (action === 'next' || action === 'last') {
-      isDisabled = activePage >= pagesCount;
-      if (action === 'next') {
-        gotoPage = Math.min(activePage + 1, pagesCount);
-      } else {
-        gotoPage = pagesCount;
-      }
+      isDisabled = this.props.activePage >= this.state.pagesCount;
+
+      gotoPage =
+        action === 'next'
+          ? Math.min(this.props.activePage + 1, this.state.pagesCount)
+          : this.state.pagesCount;
     } else {
       return;
     }
@@ -110,11 +99,11 @@ export default class Pagination extends Component {
     return (
       <Button
         key={action}
-        className={`${PAGINATION}__direction`}
+        className="rsg__pagination__direction"
         size={this.props.size}
         icon={Pagination.iconMap[action]}
         isDisabled={isDisabled}
-        onClick={() => onChange(gotoPage)}
+        onClick={event => this.props.onChange(gotoPage, event)}
       />
     );
   }
@@ -140,32 +129,32 @@ export default class Pagination extends Component {
       return;
     }
 
-    const { size } = this.props;
-    const { pagesCount } = this.state;
-
     let label = '';
 
     if (this.props.pageInfoLabel) {
       label = (
-        <Text size={size} className={`${PAGINATION}__textWithSpace`}>
+        <Text
+          size={this.props.size}
+          className="rsg__pagination}__textWithSpace"
+        >
           {this.props.pageInfoLabel}
         </Text>
       );
     }
 
     return (
-      <form onSubmit={this.handlePageSubmit} className={`${PAGINATION}__form`}>
+      <form onSubmit={this.handlePageSubmit} className="rsg__pagination__form">
         {label}
         <Input
-          size={size}
+          size={this.props.size}
           type="number"
           value={this.state.pageInfoValue}
           onChange={this.handlePageEdit}
           min="1"
-          max={pagesCount}
+          max={this.state.pagesCount}
         />
-        <Text size={size} className={`${PAGINATION}__text`}>
-          / {pagesCount}
+        <Text size={this.props.size} className="rsg__pagination__text">
+          / {this.state.pagesCount}
         </Text>
       </form>
     );
@@ -176,44 +165,50 @@ export default class Pagination extends Component {
       return;
     }
 
-    const { activePage, itemsPerPage, itemsCount } = this.props;
-
     let label = '';
     if (this.props.itemsInfoLabel) {
       // Adds ending space
       label = `${this.props.itemsInfoLabel} `;
     }
 
-    const minItemsRange = (activePage - 1) * itemsPerPage + 1;
-    const maxItemsRange = Math.min(activePage * itemsPerPage, itemsCount);
+    const minItemsRange =
+      (this.props.activePage - 1) * this.props.itemsPerPage + 1;
+    const maxItemsRange = Math.min(
+      this.props.activePage * this.props.itemsPerPage,
+      this.props.itemsCount
+    );
 
     return (
-      <Note className={`${PAGINATION}__text`}>
+      <Note className="rsg__pagination__text">
         ({label}
-        {minItemsRange}-{maxItemsRange} / {itemsCount})
+        {minItemsRange}-{maxItemsRange} / {this.props.itemsCount})
       </Note>
     );
   }
 
   renderPagesRange() {
-    const { displayRange, activePage, size, onChange } = this.props;
-    const { pagesCount } = this.state;
+    const minRangeOffset = Math.floor((this.props.displayRange - 1) / 2);
+    const minRangeMax = this.state.pagesCount - this.props.displayRange + 1;
 
-    const minRangeOffset = Math.floor((displayRange - 1) / 2);
-    const minRangeMax = pagesCount - displayRange + 1;
-
-    const minRange = _.clamp(activePage - minRangeOffset, 1, minRangeMax);
-    const maxRange = Math.min(minRange + displayRange - 1, pagesCount);
+    const minRange = clamp(
+      this.props.activePage - minRangeOffset,
+      1,
+      minRangeMax
+    );
+    const maxRange = Math.min(
+      minRange + this.props.displayRange - 1,
+      this.state.pagesCount
+    );
     const pagesRange = [];
 
     for (let page = minRange; page <= maxRange; page++) {
       pagesRange.push(
         <Button
           key={page}
-          className={`${PAGINATION}__page`}
-          isActive={page === activePage}
-          size={size}
-          onClick={() => onChange(page)}
+          className="rsg__pagination__page"
+          isActive={page === this.props.activePage}
+          size={this.props.size}
+          onClick={() => this.props.onChange(page)}
         >
           {page}
         </Button>
@@ -226,12 +221,12 @@ export default class Pagination extends Component {
   renderActionsGroup(direction) {
     let actions;
     if (direction === 'left') {
-      actions = _.compact([
+      actions = compact([
         this.renderFirstLastButton('first'),
         this.renderPrevNextButton('prev')
       ]);
     } else {
-      actions = _.compact([
+      actions = compact([
         this.renderPrevNextButton('next'),
         this.renderFirstLastButton('last')
       ]);
@@ -250,23 +245,23 @@ export default class Pagination extends Component {
    * |< < 11 12 [13] 14 15 > >| page: {3} / 23 (items: 11-15 / 118)
    */
   render() {
-    const { activePage, className, showOnSinglePage, style, id } = this.props;
-    const { pagesCount } = this.state;
-
-    if (pagesCount === 0 || (pagesCount < 2 && !showOnSinglePage)) {
+    if (
+      this.state.pagesCount === 0 ||
+      (this.state.pagesCount < 2 && !this.props.showOnSinglePage)
+    ) {
       return null;
     }
 
-    if (activePage > pagesCount) {
+    if (this.props.activePage > this.state.pagesCount) {
       throw new Error('Active page greater than page count');
     }
 
-    const classNames = classnames(PAGINATION, className);
+    const classNames = classnames('rsg__pagination', this.props.className);
 
     return (
-      <div className={classNames} style={style} id={id}>
+      <div className={classNames} style={this.props.style} id={this.props.id}>
         {this.renderActionsGroup('left')}
-        <ButtonGroup className={`${PAGINATION}__pagesGroup`}>
+        <ButtonGroup className="rsg__pagination__pagesGroup">
           {this.renderPagesRange()}
         </ButtonGroup>
         {this.renderActionsGroup('right')}

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { OPTIONS } from '@styleguide/src/constants/classnames';
 import Button from '@styleguide/src/components/Button';
 import Dropdown from '@styleguide/src/components/Dropdown';
 import './Options.scss';
@@ -17,10 +16,8 @@ export default class Options extends Component {
   };
 
   handleClick = event => {
-    const { onClick } = this.props;
-
-    if (onClick) {
-      return onClick(event);
+    if (this.props.onClick) {
+      return this.props.onClick(event);
     }
   };
 
@@ -36,17 +33,18 @@ export default class Options extends Component {
   }
 
   render() {
-    const { children, className, style, id, isHorizontal } = this.props;
     const classNames = classnames(
-      OPTIONS,
-      { [`${OPTIONS}--horizontal`]: isHorizontal },
-      className
+      {
+        rsg__options: true,
+        'rsg__options--horizontal': this.props.isHorizontal
+      },
+      this.props.className
     );
 
     return (
-      <div className={classNames} style={style} id={id}>
+      <div className={classNames} style={this.props.style} id={this.props.id}>
         <Dropdown customButton={this.renderButton()} menuPosition="right">
-          {children}
+          {this.props.children}
         </Dropdown>
       </div>
     );

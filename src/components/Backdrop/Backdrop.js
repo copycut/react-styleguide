@@ -16,9 +16,13 @@ export default class Backdrop extends React.PureComponent {
     isPristine: true
   };
 
-  handleClick = () => {
-    if (this.props.isOpen && this.props.onClick) {
-      return this.props.onClick(!this.props.isOpen);
+  static defaultProps = {
+    isOpen: false
+  };
+
+  handleClick = event => {
+    if (this.props.onClick) {
+      return this.props.onClick(!this.props.isOpen, event);
     }
   };
 

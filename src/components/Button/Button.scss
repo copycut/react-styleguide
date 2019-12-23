@@ -3,34 +3,34 @@
 @mixin buttonSizesBuilder($map: ()) {
   padding: map-get($map, 'padding');
   font-size: map-get($map, 'font-size');
-  height: map-get($map, 'height');
+  min-height: map-get($map, 'min-height');
 }
 
 $buttonSizes: (
   extraSmall: (
-    padding: $paddingExtraSmall,
+    padding: 0 $paddingExtraSmall,
     font-size: $fontSizeExtraSmall,
-    height: 29px
+    min-height: 32px
   ),
   small: (
     padding: $paddingExtraSmall $paddingSmall,
     font-size: $fontSizeSmall,
-    height: 31px
+    min-height: 32px
   ),
   normal: (
     padding: $paddingSmall $padding,
     font-size: $fontSizeNormal,
-    height: 41px
+    min-height: 40px
   ),
   large: (
     padding: $padding $paddingLarge,
     font-size: $fontSizeLarge,
-    height: 56px
+    min-height: 56px
   ),
   extraLarge: (
     padding: $paddingLarge $paddingExtraLarge,
     font-size: $fontSizeExtraLarge,
-    height: 88px
+    min-height: 88px
   )
 );
 
@@ -40,19 +40,19 @@ $buttonSizes: (
 
 $buttonRadius: (
   extraSmall: (
-    border-radius: 13px
+    border-radius: 8px
   ),
   small: (
-    border-radius: 15px
+    border-radius: 16px
   ),
   normal: (
-    border-radius: 20px
+    border-radius: 24px
   ),
   large: (
-    border-radius: 27px
+    border-radius: 32px
   ),
   extraLarge: (
-    border-radius: 43px
+    border-radius: 48px
   )
 );
 
@@ -66,7 +66,9 @@ $buttonRadius: (
   box-sizing: border-box;
   color: $textColor;
   cursor: pointer;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-family: $sansSerif;
   font-weight: $fontWeightLight;
   line-height: $lineHeightExtraSmall;
@@ -74,14 +76,7 @@ $buttonRadius: (
   vertical-align: middle;
   transition: background-color $speed $ease, border-color $speed $ease;
   position: relative;
-  z-index: 1;
   margin: 0;
-
-  &.rsg__button--active,
-  &:active,
-  &:focus {
-    z-index: 2;
-  }
 
   &:focus,
   &:hover {
@@ -99,7 +94,7 @@ $buttonRadius: (
     border-color: $primary;
     background-color: $white;
     outline: none;
-    box-shadow: 0 0 10px rgba($primary, 0.33);
+    box-shadow: 0 0 16px rgba($primary, 0.33);
 
     .rsg__button__icon {
       fill: $primary;
@@ -233,7 +228,7 @@ $buttonRadius: (
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      max-width: calc(100% - 26px);
+      max-width: calc(100% - 24px);
     }
   }
 
@@ -248,7 +243,7 @@ $buttonRadius: (
   }
 
   .rsg__icon + .rsg__button__label {
-    margin-left: 10px;
+    margin-left: 8px;
   }
 
   .rsg__button__label {

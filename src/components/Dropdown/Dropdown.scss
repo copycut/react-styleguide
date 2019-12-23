@@ -2,7 +2,7 @@
 
 .rsg__dropdown {
   box-sizing: border-box;
-  display: inline-block;
+  display: inline-flex;
   position: relative;
   vertical-align: middle;
   outline: none;
@@ -12,7 +12,7 @@
 
     .rsg__button__inner {
       text-align: center;
-      padding-right: 15px;
+      padding-right: 16px;
     }
 
     .rsg__dropdown__icon {
@@ -151,7 +151,7 @@
     min-width: $minWidthMenu;
     width: 100%;
     will-change: transform, opacity;
-    z-index: $zindex-dropdown;
+    z-index: 1;
     /* IE11: fix blurry rendering bug */
     @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
       overflow: visible;

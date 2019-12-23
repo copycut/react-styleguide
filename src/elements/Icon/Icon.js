@@ -42,20 +42,18 @@ export default class Icon extends Component {
   };
 
   render() {
-    const { icon } = this.props;
-
-    if (!icon && !this.props.path) {
+    if (!this.props.icon && !this.props.path) {
       return null;
     }
 
-    let iconClassName = icon;
-    let iconSource = icon;
+    let iconClassName = this.props.icon;
+    let iconSource = this.props.icon;
 
-    if (icon && icon[0] === '<') {
+    if (this.props.icon && this.props.icon[0] === '<') {
       iconClassName = false;
-      iconSource = icon;
-    } else if (icon) {
-      iconSource = require(`../../icons/${icon}.svg`);
+      iconSource = this.props.icon;
+    } else if (this.props.icon) {
+      iconSource = require(`../../icons/${this.props.icon}.svg`);
     } else {
       iconClassName = false;
     }

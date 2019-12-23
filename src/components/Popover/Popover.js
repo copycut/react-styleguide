@@ -85,9 +85,7 @@ export default class Popover extends Component {
   }
 
   renderCloseButton() {
-    const { isDismissible } = this.props;
-
-    if (!isDismissible) {
+    if (!this.props.isDismissible) {
       return;
     }
 

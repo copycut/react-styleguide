@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import castArray from 'lodash/castArray';
-import compact from 'lodash/compact';
 import './ButtonGroup.scss';
 
 export default class ButtonGroup extends React.PureComponent {
@@ -15,7 +13,7 @@ export default class ButtonGroup extends React.PureComponent {
   };
 
   render() {
-    const childrenAmount = compact(castArray(this.props.children)).length;
+    const childrenAmount = React.Children.count(this.props.children);
     const classNames = classnames(
       {
         rsg__buttonGroup: true,

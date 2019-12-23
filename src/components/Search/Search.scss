@@ -7,9 +7,10 @@
 
   .rsg__search__icon {
     position: absolute;
-    bottom: 12px;
+    top: 50%;
+    transform: translateY(-50%);
     left: $padding;
-    z-index: 3;
+    z-index: 1;
   }
 
   &.rsg__search--block {
@@ -25,45 +26,29 @@
 
   &.rsg__search--extraSmall {
     .rsg__search__input {
-      padding-left: 30px;
-    }
-
-    .rsg__search__icon {
-      bottom: 8px;
+      padding-left: 24px;
     }
   }
 
   &.rsg__search--small {
     .rsg__search__input {
-      padding-left: 35px;
+      padding-left: 32px;
     }
+  }
 
-    .rsg__search__icon {
-      bottom: 9px;
-    }
+  .rsg__search__input {
+    padding-left: 44px;
   }
 
   &.rsg__search--large {
     .rsg__search__input {
-      padding-left: 45px;
-    }
-
-    .rsg__search__icon {
-      bottom: 18px;
+      padding-left: 52px;
     }
   }
 
   &.rsg__search--extraLarge {
     .rsg__search__input {
-      padding-left: 50px;
+      padding-left: 64px;
     }
-
-    .rsg__search__icon {
-      bottom: 32px;
-    }
-  }
-
-  .rsg__search__input {
-    padding-left: 40px;
   }
 }

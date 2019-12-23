@@ -3,34 +3,34 @@
 @mixin inputSizesBuilder($map: ()) {
   padding: map-get($map, 'padding');
   font-size: map-get($map, 'font-size');
-  height: map-get($map, 'height');
+  min-height: map-get($map, 'min-height');
 }
 
 $InputSizes: (
   extraSmall: (
     padding: 0 $paddingExtraSmall,
     font-size: $fontSizeExtraSmall,
-    height: 27px
+    min-height: 32px
   ),
   small: (
-    padding: 0 $paddingSmall,
+    padding: $paddingExtraSmall $paddingSmall,
     font-size: $fontSizeSmall,
-    height: 30px
+    min-height: 32px
   ),
   normal: (
-    padding: 0 $padding,
+    padding: $paddingSmall $padding,
     font-size: $fontSizeNormal,
-    height: 41px
+    min-height: 40px
   ),
   large: (
-    padding: 0 $paddingLarge,
+    padding: $padding $paddingLarge,
     font-size: $fontSizeLarge,
-    height: 54px
+    min-height: 56px
   ),
   extraLarge: (
-    padding: 0 $paddingExtraLarge,
+    padding: $paddingLarge $paddingExtraLarge,
     font-size: $fontSizeExtraLarge,
-    height: 86px
+    min-height: 88px
   )
 );
 
@@ -40,34 +40,31 @@ $InputSizes: (
 
 $inputRadius: (
   extraSmall: (
-    border-radius: 13px
+    border-radius: 8px
   ),
   small: (
-    border-radius: 15px
+    border-radius: 16px
   ),
   normal: (
-    border-radius: 20px
+    border-radius: 24px
   ),
   large: (
-    border-radius: 27px
+    border-radius: 32px
   ),
   extraLarge: (
-    border-radius: 43px
+    border-radius: 48px
   )
 );
 
 .rsg__input__wrapper {
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: column;
   box-sizing: border-box;
   position: relative;
 
   &.rsg__input__wrapper--block,
   &.rsg__input__wrapper--textarea {
     width: 100%;
-  }
-
-  .rsg__input__errorMessage {
-    padding: $paddingExtraSmall 0;
   }
 }
 
@@ -81,7 +78,7 @@ $inputRadius: (
   box-sizing: border-box;
   color: $textColor;
   cursor: text;
-  display: inline-block;
+  display: inline-flex;
   font-family: $sansSerif;
   font-weight: $fontWeightLight;
   line-height: normal;
@@ -89,15 +86,10 @@ $inputRadius: (
   vertical-align: middle;
   transition: background-color $speed $ease, border-color $speed $ease;
   position: relative;
-  z-index: 1;
   margin: 0;
   text-overflow: ellipsis;
   box-shadow: none;
-
-  &:active,
-  &:focus {
-    z-index: 2;
-  }
+  overflow: hidden;
 
   &:focus,
   &:hover {
@@ -144,7 +136,7 @@ $inputRadius: (
   }
 
   &.rsg__input--rounded {
-    border-radius: 20px;
+    border-radius: 24px;
 
     @each $sizeLabel, $map in $inputRadius {
       &.rsg__input--#{$sizeLabel} {
@@ -165,7 +157,7 @@ $inputRadius: (
   &.rsg__input--type--textarea {
     width: 100%;
     resize: vertical;
-    min-height: 86px;
+    min-height: 88px;
     padding-top: $paddingSmall;
     padding-bottom: $paddingSmall;
   }
@@ -175,4 +167,8 @@ $inputRadius: (
     color: $danger;
     background-color: $dangerSmoke;
   }
+}
+
+.rsg__text.rsg__input__errorMessage {
+  padding-bottom: $paddingExtraSmall;
 }

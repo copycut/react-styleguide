@@ -18,17 +18,17 @@ export default class Checkbox extends Component {
     style: PropTypes.object
   };
 
-  handleClick = () => {
+  handleClick = event => {
     if (this.props.isDisabled) {
       return;
     }
 
     if (this.props.onClick) {
-      this.props.onClick(!this.props.isChecked);
+      this.props.onClick(!this.props.isChecked, event);
     }
 
     if (this.props.onChange) {
-      this.props.onChange(!this.props.isChecked);
+      this.props.onChange(!this.props.isChecked, event);
     }
   };
 

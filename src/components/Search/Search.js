@@ -31,6 +31,17 @@ export default class Search extends Component {
     }
   };
 
+  renderIcon() {
+    return (
+      <Icon
+        icon={get(this.props, 'icon', 'search')}
+        color="greyMedium"
+        className="rsg__search__icon"
+        size={this.props.size}
+      />
+    );
+  }
+
   render() {
     const classNames = classnames(
       'rsg__search',
@@ -45,12 +56,6 @@ export default class Search extends Component {
     return (
       <div className={classNames} style={this.props.style} id={this.props.id}>
         {this.props.children}
-        <Icon
-          icon={get(this.props, 'icon', 'search')}
-          color="greyMedium"
-          className="rsg__search__icon"
-          size={this.props.size}
-        />
         <Input
           autoFocus={this.props.autoFocus}
           autoComplete="off"
@@ -65,6 +70,7 @@ export default class Search extends Component {
           size={this.props.size}
           onChange={this.handleChange}
           value={this.props.value}
+          slot={this.renderIcon()}
         />
       </div>
     );
