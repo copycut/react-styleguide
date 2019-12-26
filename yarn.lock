@@ -313,10 +313,10 @@
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-syntax-json-strings" "^7.7.4"
 
-"@babel/plugin-proposal-object-rest-spread@^7.7.4":
-  version "7.7.4"
-  resolved "http://nexus.groups.local/content/groups/npm-all/@babel/plugin-proposal-object-rest-spread/-/plugin-proposal-object-rest-spread-7.7.4.tgz#cc57849894a5c774214178c8ab64f6334ec8af71"
-  integrity sha512-rnpnZR3/iWKmiQyJ3LKJpSwLDcX/nSXhdLk4Aq/tXOApIvyu7qoabrige0ylsAJffaUC51WiBu209Q0U+86OWQ==
+"@babel/plugin-proposal-object-rest-spread@^7.7.7":
+  version "7.7.7"
+  resolved "http://nexus.groups.local/content/groups/npm-all/@babel/plugin-proposal-object-rest-spread/-/plugin-proposal-object-rest-spread-7.7.7.tgz#9f27075004ab99be08c5c1bd653a2985813cb370"
+  integrity sha512-3qp9I8lelgzNedI3hrhkvhaEYree6+WHnyA/q4Dza9z7iEIs1eyhWyJnetk3jJ69RT0AT4G0UhEGwyGFJ7GUuQ==
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-syntax-object-rest-spread" "^7.7.4"
@@ -329,10 +329,10 @@
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-syntax-optional-catch-binding" "^7.7.4"
 
-"@babel/plugin-proposal-unicode-property-regex@^7.7.4":
-  version "7.7.4"
-  resolved "http://nexus.groups.local/content/groups/npm-all/@babel/plugin-proposal-unicode-property-regex/-/plugin-proposal-unicode-property-regex-7.7.4.tgz#7c239ccaf09470dbe1d453d50057460e84517ebb"
-  integrity sha512-cHgqHgYvffluZk85dJ02vloErm3Y6xtH+2noOBOJ2kXOJH3aVCDnj5eR/lVNlTnYu4hndAPJD3rTFjW3qee0PA==
+"@babel/plugin-proposal-unicode-property-regex@^7.7.7":
+  version "7.7.7"
+  resolved "http://nexus.groups.local/content/groups/npm-all/@babel/plugin-proposal-unicode-property-regex/-/plugin-proposal-unicode-property-regex-7.7.7.tgz#433fa9dac64f953c12578b29633f456b68831c4e"
+  integrity sha512-80PbkKyORBUVm1fbTLrHpYdJxMThzM1UqFGh0ALEhO9TYbG86Ah9zQYAB/84axz2vcxefDLdZwWwZNlYARlu9w==
   dependencies:
     "@babel/helper-create-regexp-features-plugin" "^7.7.4"
     "@babel/helper-plugin-utils" "^7.0.0"
@@ -445,10 +445,10 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
-"@babel/plugin-transform-dotall-regex@^7.7.4":
-  version "7.7.4"
-  resolved "http://nexus.groups.local/content/groups/npm-all/@babel/plugin-transform-dotall-regex/-/plugin-transform-dotall-regex-7.7.4.tgz#f7ccda61118c5b7a2599a72d5e3210884a021e96"
-  integrity sha512-mk0cH1zyMa/XHeb6LOTXTbG7uIJ8Rrjlzu91pUx/KS3JpcgaTDwMS8kM+ar8SLOvlL2Lofi4CGBAjCo3a2x+lw==
+"@babel/plugin-transform-dotall-regex@^7.7.7":
+  version "7.7.7"
+  resolved "http://nexus.groups.local/content/groups/npm-all/@babel/plugin-transform-dotall-regex/-/plugin-transform-dotall-regex-7.7.7.tgz#3e9713f1b69f339e87fa796b097d73ded16b937b"
+  integrity sha512-b4in+YlTeE/QmTgrllnb3bHA0HntYvjz8O3Mcbx75UBPJA2xhb5A8nle498VhxSXJHQefjtQxpnLPehDJ4TRlg==
   dependencies:
     "@babel/helper-create-regexp-features-plugin" "^7.7.4"
     "@babel/helper-plugin-utils" "^7.0.0"
@@ -555,10 +555,10 @@
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/helper-replace-supers" "^7.7.4"
 
-"@babel/plugin-transform-parameters@^7.7.4":
-  version "7.7.4"
-  resolved "http://nexus.groups.local/content/groups/npm-all/@babel/plugin-transform-parameters/-/plugin-transform-parameters-7.7.4.tgz#da4555c97f39b51ac089d31c7380f03bca4075ce"
-  integrity sha512-VJwhVePWPa0DqE9vcfptaJSzNDKrWU/4FbYCjZERtmqEs05g3UMXnYMZoXja7JAJ7Y7sPZipwm/pGApZt7wHlw==
+"@babel/plugin-transform-parameters@^7.7.7":
+  version "7.7.7"
+  resolved "http://nexus.groups.local/content/groups/npm-all/@babel/plugin-transform-parameters/-/plugin-transform-parameters-7.7.7.tgz#7a884b2460164dc5f194f668332736584c760007"
+  integrity sha512-OhGSrf9ZBrr1fw84oFXj5hgi8Nmg+E2w5L7NhnG0lPvpDtqd7dbyilM2/vR8CKbJ907RyxPh2kj6sBCSSfI9Ew==
   dependencies:
     "@babel/helper-call-delegate" "^7.7.4"
     "@babel/helper-get-function-arity" "^7.7.4"
@@ -662,19 +662,19 @@
     "@babel/helper-create-regexp-features-plugin" "^7.7.4"
     "@babel/helper-plugin-utils" "^7.0.0"
 
-"@babel/preset-env@^7.7.6":
-  version "7.7.6"
-  resolved "http://nexus.groups.local/content/groups/npm-all/@babel/preset-env/-/preset-env-7.7.6.tgz#39ac600427bbb94eec6b27953f1dfa1d64d457b2"
-  integrity sha512-k5hO17iF/Q7tR9Jv8PdNBZWYW6RofxhnxKjBMc0nG4JTaWvOTiPoO/RLFwAKcA4FpmuBFm6jkoqaRJLGi0zdaQ==
+"@babel/preset-env@^7.7.7":
+  version "7.7.7"
+  resolved "http://nexus.groups.local/content/groups/npm-all/@babel/preset-env/-/preset-env-7.7.7.tgz#c294167b91e53e7e36d820e943ece8d0c7fe46ac"
+  integrity sha512-pCu0hrSSDVI7kCVUOdcMNQEbOPJ52E+LrQ14sN8uL2ALfSqePZQlKrOy+tM4uhEdYlCHi4imr8Zz2cZe9oSdIg==
   dependencies:
     "@babel/helper-module-imports" "^7.7.4"
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-proposal-async-generator-functions" "^7.7.4"
     "@babel/plugin-proposal-dynamic-import" "^7.7.4"
     "@babel/plugin-proposal-json-strings" "^7.7.4"
-    "@babel/plugin-proposal-object-rest-spread" "^7.7.4"
+    "@babel/plugin-proposal-object-rest-spread" "^7.7.7"
     "@babel/plugin-proposal-optional-catch-binding" "^7.7.4"
-    "@babel/plugin-proposal-unicode-property-regex" "^7.7.4"
+    "@babel/plugin-proposal-unicode-property-regex" "^7.7.7"
     "@babel/plugin-syntax-async-generators" "^7.7.4"
     "@babel/plugin-syntax-dynamic-import" "^7.7.4"
     "@babel/plugin-syntax-json-strings" "^7.7.4"
@@ -688,7 +688,7 @@
     "@babel/plugin-transform-classes" "^7.7.4"
     "@babel/plugin-transform-computed-properties" "^7.7.4"
     "@babel/plugin-transform-destructuring" "^7.7.4"
-    "@babel/plugin-transform-dotall-regex" "^7.7.4"
+    "@babel/plugin-transform-dotall-regex" "^7.7.7"
     "@babel/plugin-transform-duplicate-keys" "^7.7.4"
     "@babel/plugin-transform-exponentiation-operator" "^7.7.4"
     "@babel/plugin-transform-for-of" "^7.7.4"
@@ -702,7 +702,7 @@
     "@babel/plugin-transform-named-capturing-groups-regex" "^7.7.4"
     "@babel/plugin-transform-new-target" "^7.7.4"
     "@babel/plugin-transform-object-super" "^7.7.4"
-    "@babel/plugin-transform-parameters" "^7.7.4"
+    "@babel/plugin-transform-parameters" "^7.7.7"
     "@babel/plugin-transform-property-literals" "^7.7.4"
     "@babel/plugin-transform-regenerator" "^7.7.5"
     "@babel/plugin-transform-reserved-words" "^7.7.4"
@@ -714,7 +714,7 @@
     "@babel/plugin-transform-unicode-regex" "^7.7.4"
     "@babel/types" "^7.7.4"
     browserslist "^4.6.0"
-    core-js-compat "^3.4.7"
+    core-js-compat "^3.6.0"
     invariant "^2.2.2"
     js-levenshtein "^1.1.3"
     semver "^5.5.0"
@@ -830,7 +830,7 @@
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
 
-"@sinonjs/commons@^1", "@sinonjs/commons@^1.4.0":
+"@sinonjs/commons@^1":
   version "1.6.0"
   resolved "http://nexus.groups.local/content/groups/npm-all/@sinonjs/commons/-/commons-1.6.0.tgz#ec7670432ae9c8eb710400d112c201a362d83393"
   integrity sha512-w4/WHG7C4WWFyE5geCieFJF6MZkbW4VAriol5KlmQXpAQdxvV0p26sqNZOW6Qyw6Y0l9K4g+cHvvczR2sEEpqg==
@@ -2025,7 +2025,7 @@ ccount@^1.0.0:
   resolved "http://nexus.groups.local/content/groups/npm-all/ccount/-/ccount-1.0.4.tgz#9cf2de494ca84060a2a8d2854edd6dfb0445f386"
   integrity sha512-fpZ81yYfzentuieinmGnphk0pLkOTMm6MZdVqwd77ROvhko6iujLNGrHH5E7utq3ygWklwfmwuG+A7P+NpqT6w==
 
-chai@4.2.0:
+chai@^4.2.0:
   version "4.2.0"
   resolved "http://nexus.groups.local/content/groups/npm-all/chai/-/chai-4.2.0.tgz#760aa72cf20e3795e84b12877ce0e83737aa29e5"
   integrity sha512-XQU3bhBukrOsQCuwZndwGcCVQHyZi53fQ6Ys1Fym7E4olpIqqZZhhoFJoaKVvV17lWQoXYwgWN2nF5crA8J2jw==
@@ -2156,7 +2156,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@2.2.6:
+classnames@^2.2.6:
   version "2.2.6"
   resolved "http://nexus.groups.local/content/groups/npm-all/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
@@ -2166,7 +2166,7 @@ clean-stack@^2.0.0:
   resolved "http://nexus.groups.local/content/groups/npm-all/clean-stack/-/clean-stack-2.2.0.tgz#ee8472dbb129e727b31e8a10a427dee9dfe4008b"
   integrity sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A==
 
-clean-webpack-plugin@3.0.0, clean-webpack-plugin@^3.0.0:
+clean-webpack-plugin@^3.0.0:
   version "3.0.0"
   resolved "http://nexus.groups.local/content/groups/npm-all/clean-webpack-plugin/-/clean-webpack-plugin-3.0.0.tgz#a99d8ec34c1c628a4541567aa7b457446460c62b"
   integrity sha512-MciirUH5r+cYLGCOL5JX/ZLzOZbVr1ot3Fw+KcvbhUb6PM+yycqd9ZhIlcigQ5gl+XhppNmw3bEFuaaMNyLj3A==
@@ -2477,13 +2477,13 @@ copy-webpack-plugin@^5.1.0:
     serialize-javascript "^2.1.2"
     webpack-log "^2.0.0"
 
-core-js-compat@^3.4.7:
-  version "3.5.0"
-  resolved "http://nexus.groups.local/content/groups/npm-all/core-js-compat/-/core-js-compat-3.5.0.tgz#5a11a619a9e9dd2dcf1c742b2060bc4a2143e5b6"
-  integrity sha512-E7iJB72svRjJTnm9HDvujzNVMCm3ZcDYEedkJ/sDTNsy/0yooCd9Cg7GSzE7b4e0LfIkjijdB1tqg0pGwxWeWg==
+core-js-compat@^3.6.0:
+  version "3.6.1"
+  resolved "http://nexus.groups.local/content/groups/npm-all/core-js-compat/-/core-js-compat-3.6.1.tgz#39638c935c83c93a793abb628b252ec43e85783a"
+  integrity sha512-2Tl1EuxZo94QS2VeH28Ebf5g3xbPZG/hj/N5HDDy4XMP/ImR0JIer/nggQRiMN91Q54JVkGbytf42wO29oXVHg==
   dependencies:
     browserslist "^4.8.2"
-    semver "^6.3.0"
+    semver "7.0.0"
 
 core-js@^1.0.0:
   version "1.2.7"
@@ -2612,7 +2612,7 @@ css-initials@^0.3.1:
   resolved "http://nexus.groups.local/content/groups/npm-all/css-initials/-/css-initials-0.3.1.tgz#0406d78e586fd12b9984a3f7d8a87fcbb2073208"
   integrity sha512-fkshKv9vV8AmcxkAWVQ9DmEAKiqe09GHdnFaXecp0NIfsGnXIHVJAHfsxdRy9KXV0/KiWdjBqrCYto2fYIO4xQ==
 
-css-loader@3.4.0:
+css-loader@^3.4.0:
   version "3.4.0"
   resolved "http://nexus.groups.local/content/groups/npm-all/css-loader/-/css-loader-3.4.0.tgz#9fb263436783117a41d014e45e8eaeba54dd6670"
   integrity sha512-JornYo4RAXl1Mzt0lOSVPmArzAMV3rGY2VuwtaDc732WTWjdwTaeS19nCGWMcSCf305Q396lhhDAJEWWM0SgPQ==
@@ -2958,7 +2958,7 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
-dog-names@2.0.0:
+dog-names@^2.0.0:
   version "2.0.0"
   resolved "http://nexus.groups.local/content/groups/npm-all/dog-names/-/dog-names-2.0.0.tgz#b9979049420030ad4590f349a39827845153cf6e"
   integrity sha512-70Z78UHuLSfzVkPjvlI7EKzdIuaQggU7R6rwX+SS4QLckAnaHDsBIZRMqiOEo8f9Hue0mGB9R7bWvMwjRcuZeA==
@@ -3175,7 +3175,7 @@ enzyme-shallow-equal@^1.0.1:
     has "^1.0.3"
     object-is "^1.0.2"
 
-enzyme@3.11.0:
+enzyme@^3.11.0:
   version "3.11.0"
   resolved "http://nexus.groups.local/content/groups/npm-all/enzyme/-/enzyme-3.11.0.tgz#71d680c580fe9349f6f5ac6c775bc3e6b7a79c28"
   integrity sha512-Dw8/Gs4vRjxY6/6i9wU0V+utmQO9kvh9XLnz3LIudviOnVYDEe2ec+0k+NQoMamn1VrjKgCUOWj5jG/5M5M0Qw==
@@ -3388,6 +3388,11 @@ eslint@^6.8.0:
     table "^5.2.3"
     text-table "^0.2.0"
     v8-compile-cache "^2.0.3"
+
+esm@^3.2.25:
+  version "3.2.25"
+  resolved "http://nexus.groups.local/content/groups/npm-all/esm/-/esm-3.2.25.tgz#342c18c29d56157688ba5ce31f8431fbb795cc10"
+  integrity sha512-U1suiZ2oDVWv4zPO56S0NcR5QriEahGtdN2OR6FiOG4WJvcjBVFB0qI4+eKoWFH483PKGuLuu6V8Z4T5g63UVA==
 
 espree@^6.1.2:
   version "6.1.2"
@@ -4522,7 +4527,7 @@ iferr@^0.1.5:
   resolved "http://nexus.groups.local/content/groups/npm-all/iferr/-/iferr-0.1.5.tgz#c60eed69e6d8fdb6b3104a1fcbca1c192dc5b501"
   integrity sha1-xg7taebY/bazEEofy8ocGS3FtQE=
 
-ignore-styles@5.0.1:
+ignore-styles@^5.0.1:
   version "5.0.1"
   resolved "http://nexus.groups.local/content/groups/npm-all/ignore-styles/-/ignore-styles-5.0.1.tgz#b49ef2274bdafcd8a4880a966bfe38d1a0bf4671"
   integrity sha1-tJ7yJ0va/NikiAqWa/440aC/RnE=
@@ -5221,7 +5226,7 @@ jsbn@~0.1.0:
   resolved "http://nexus.groups.local/content/groups/npm-all/jsbn/-/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"
   integrity sha1-peZUwuWi3rXyAdls77yoDA7y9RM=
 
-jsdom@15.2.1:
+jsdom@^15.2.1:
   version "15.2.1"
   resolved "http://nexus.groups.local/content/groups/npm-all/jsdom/-/jsdom-15.2.1.tgz#d2feb1aef7183f86be521b8c6833ff5296d07ec5"
   integrity sha512-fAl1W0/7T2G5vURSyxBzrJ1LSdQn6Tr5UX/xD4PXDx/PDgwygedfW6El/KIj3xJ7FU61TTYnc/l/B7P49Eqt6g==
@@ -5531,7 +5536,7 @@ locate-path@^5.0.0:
   dependencies:
     p-locate "^4.1.0"
 
-lodash-webpack-plugin@0.11.5:
+lodash-webpack-plugin@^0.11.5:
   version "0.11.5"
   resolved "http://nexus.groups.local/content/groups/npm-all/lodash-webpack-plugin/-/lodash-webpack-plugin-0.11.5.tgz#c4bd064b4f561c3f823fa5982bdeb12c475390b9"
   integrity sha512-QWfEIYxpixOdbd6KBe5g6MDWcyTgP3trDXwKHFqTlXrWiLcs/67fGQ0IWeRyhWlTITQIgMpJAYd2oeIztuV5VA==
@@ -5563,7 +5568,7 @@ lodash.sortby@^4.7.0:
   resolved "http://nexus.groups.local/content/groups/npm-all/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
   integrity sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=
 
-lodash@4.17.15, lodash@^4.0.0, lodash@^4.15.0, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.4, lodash@~4.17.10:
+lodash@^4.0.0, lodash@^4.15.0, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.4, lodash@~4.17.10:
   version "4.17.15"
   resolved "http://nexus.groups.local/content/groups/npm-all/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
@@ -5978,7 +5983,7 @@ mkdirp@0.5.1, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1:
   dependencies:
     minimist "0.0.8"
 
-mocha@6.2.2:
+mocha@^6.2.2:
   version "6.2.2"
   resolved "http://nexus.groups.local/content/groups/npm-all/mocha/-/mocha-6.2.2.tgz#5d8987e28940caf8957a7d7664b910dc5b2fea20"
   integrity sha512-FgDS9Re79yU1xz5d+C4rv1G7QagNGHZ+iXF81hO8zY35YZZcLEsJVfFolfsqKFWunATEvNzMK0r/CwWd/szO9A==
@@ -6355,7 +6360,7 @@ nwsapi@^2.2.0:
   resolved "http://nexus.groups.local/content/groups/npm-all/nwsapi/-/nwsapi-2.2.0.tgz#204879a9e3d068ff2a55139c2c772780681a38b7"
   integrity sha512-h2AatdwYH+JHiZpv7pt/gSX1XoRGb7L/qSIeuqA6GwYoF9w1vP1cw42TO0aI2pNyshRK5893hNSl+1//vHK7hQ==
 
-nyc@15.0.0:
+nyc@^15.0.0:
   version "15.0.0"
   resolved "http://nexus.groups.local/content/groups/npm-all/nyc/-/nyc-15.0.0.tgz#eb32db2c0f29242c2414fe46357f230121cfc162"
   integrity sha512-qcLBlNCKMDVuKb7d1fpxjPR8sHeMVX0CHarXAVzrVWoFrigCkYR8xcrjfXSPi5HXM7EU78L6ywO7w1c5rZNCNg==
@@ -6988,7 +6993,7 @@ postcss-load-config@^2.0.0:
     cosmiconfig "^5.0.0"
     import-cwd "^2.0.0"
 
-postcss-loader@3.0.0:
+postcss-loader@^3.0.0:
   version "3.0.0"
   resolved "http://nexus.groups.local/content/groups/npm-all/postcss-loader/-/postcss-loader-3.0.0.tgz#6b97943e47c72d845fa9e03f273773d4e8dd6c2d"
   integrity sha512-cLWoDEY5OwHcAjDnkyRQzAXfs2jrKjXpO/HQFcc5b5u/r7aa471wdmChmwfnv7x2u840iat/wi0lQ5nbRgSkUA==
@@ -7114,7 +7119,7 @@ prop-types-exact@^1.2.0:
     object.assign "^4.1.0"
     reflect.ownkeys "^0.2.0"
 
-prop-types@15.7.2, prop-types@^15.5.7, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.7, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "http://nexus.groups.local/content/groups/npm-all/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -7292,7 +7297,7 @@ raw-body@2.4.0:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
-raw-loader@4.0.0:
+raw-loader@^4.0.0:
   version "4.0.0"
   resolved "http://nexus.groups.local/content/groups/npm-all/raw-loader/-/raw-loader-4.0.0.tgz#d639c40fb9d72b5c7f8abc1fb2ddb25b29d3d540"
   integrity sha512-iINUOYvl1cGEmfoaLjnZXt4bKfT2LJnZZib5N/LLyAphC+Dd11vNP9CNVb38j+SAJpFI1uo8j9frmih53ASy7Q==
@@ -7300,7 +7305,7 @@ raw-loader@4.0.0:
     loader-utils "^1.2.3"
     schema-utils "^2.5.0"
 
-react-datetime@2.16.3:
+react-datetime@^2.16.3:
   version "2.16.3"
   resolved "http://nexus.groups.local/content/groups/npm-all/react-datetime/-/react-datetime-2.16.3.tgz#7f9ac7d4014a939c11c761d0c22d1fb506cb505e"
   integrity sha512-amWfb5iGEiyqjLmqCLlPpu2oN415jK8wX1qoTq7qn6EYiU7qQgbNHglww014PT4O/3G5eo/3kbJu/M/IxxTyGw==
@@ -7366,7 +7371,7 @@ react-docgen@^4.1.1:
     node-dir "^0.1.10"
     recast "^0.17.3"
 
-react-dom@16.12.0:
+react-dom@^16.12.0:
   version "16.12.0"
   resolved "http://nexus.groups.local/content/groups/npm-all/react-dom/-/react-dom-16.12.0.tgz#0da4b714b8d13c2038c9396b54a92baea633fe11"
   integrity sha512-LMxFfAGrcS3kETtQaCkTKjMiifahaMySFDn71fZUNpPHZQEzmk/GiAeIT8JSOrHB23fnuCOMruL2a8NYlw+8Gw==
@@ -7410,7 +7415,7 @@ react-simple-code-editor@^0.10.0:
   resolved "http://nexus.groups.local/content/groups/npm-all/react-simple-code-editor/-/react-simple-code-editor-0.10.0.tgz#73e7ac550a928069715482aeb33ccba36efe2373"
   integrity sha512-bL5W5mAxSW6+cLwqqVWY47Silqgy2DKDTR4hDBrLrUqC5BXc29YVx17l2IZk5v36VcDEq1Bszu2oHm1qBwKqBA==
 
-react-styleguidist@10.3.2:
+react-styleguidist@^10.3.2:
   version "10.3.2"
   resolved "http://nexus.groups.local/content/groups/npm-all/react-styleguidist/-/react-styleguidist-10.3.2.tgz#702f97ef894496f2cd20891b22880441fd9fcf59"
   integrity sha512-sD7/cVFABQ/FFLC9GtDQzQOhLnhiDcyIOHI/Yl3m8ZMK70T+CYiEOM4ca2XwY3RejgFrWzlWsgwto5YksGL8gA==
@@ -7476,7 +7481,7 @@ react-styleguidist@10.3.2:
     webpack-dev-server "^3.9.0"
     webpack-merge "^4.2.2"
 
-react-test-renderer@16.12.0, react-test-renderer@^16.0.0-0:
+react-test-renderer@^16.0.0-0, react-test-renderer@^16.12.0:
   version "16.12.0"
   resolved "http://nexus.groups.local/content/groups/npm-all/react-test-renderer/-/react-test-renderer-16.12.0.tgz#11417ffda579306d4e841a794d32140f3da1b43f"
   integrity sha512-Vj/teSqt2oayaWxkbhQ6gKis+t5JrknXfPVo+aIJ8QwYAqMPH77uptOdrlphyxl8eQI/rtkOYg86i/UWkpFu0w==
@@ -7486,7 +7491,7 @@ react-test-renderer@16.12.0, react-test-renderer@^16.0.0-0:
     react-is "^16.8.6"
     scheduler "^0.18.0"
 
-react@16.12.0:
+react@^16.12.0:
   version "16.12.0"
   resolved "http://nexus.groups.local/content/groups/npm-all/react/-/react-16.12.0.tgz#0c0a9c6a142429e3614834d5a778e18aa78a0b83"
   integrity sha512-fglqy3k5E+81pA8s+7K0/T3DBCF0ZDOher1elBFzF7O6arXJgzyu/FW+COxFvAWXJoJN9KIZbT2LXlukwphYTA==
@@ -7996,7 +8001,7 @@ sass-graph@^2.2.4:
     scss-tokenizer "^0.2.3"
     yargs "^7.0.0"
 
-sass-loader@8.0.0:
+sass-loader@^8.0.0:
   version "8.0.0"
   resolved "http://nexus.groups.local/content/groups/npm-all/sass-loader/-/sass-loader-8.0.0.tgz#e7b07a3e357f965e6b03dd45b016b0a9746af797"
   integrity sha512-+qeMu563PN7rPdit2+n5uuYVR0SSVwm0JsOUsaJXzgYcClWSlmX0iHDnmeOobPkf5kUglVot3QS6SyLyaQoJ4w==
@@ -8076,6 +8081,11 @@ selfsigned@^1.10.7:
   version "5.7.1"
   resolved "http://nexus.groups.local/content/groups/npm-all/semver/-/semver-5.7.1.tgz#a954f931aeba508d307bbf069eff0c01c96116f7"
   integrity sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==
+
+semver@7.0.0:
+  version "7.0.0"
+  resolved "http://nexus.groups.local/content/groups/npm-all/semver/-/semver-7.0.0.tgz#5f3ca35761e47e05b206c6daff2cf814f0316b8e"
+  integrity sha512-+GB6zVA9LWh6zovYQLALHwv5rb2PHGlJi3lfiqIHxR0uuwCgefcOJc59v9fv1w8GbStwxuuqqAjI9NMAOOgq1A==
 
 semver@^6.0.0, semver@^6.1.2, semver@^6.3.0:
   version "6.3.0"
@@ -8218,12 +8228,12 @@ simple-html-tokenizer@^0.1.1:
   resolved "http://nexus.groups.local/content/groups/npm-all/simple-html-tokenizer/-/simple-html-tokenizer-0.1.1.tgz#05c2eec579ffffe145a030ac26cfea61b980fabe"
   integrity sha1-BcLuxXn//+FFoDCsJs/qYbmA+r4=
 
-sinon@8.0.0:
-  version "8.0.0"
-  resolved "http://nexus.groups.local/content/groups/npm-all/sinon/-/sinon-8.0.0.tgz#7126368de2df4ebd5b0a4d7da3de89aab4948c3e"
-  integrity sha512-9ugfO9tMrxTzqViG0hGhJoLXj8M01FZwfXMpYSmQT1AuV2jyXDJZUMpbENHBY9/2c2u6RKkHOcbYINx2FttUkg==
+sinon@^8.0.1:
+  version "8.0.1"
+  resolved "http://nexus.groups.local/content/groups/npm-all/sinon/-/sinon-8.0.1.tgz#c256376cd133dbb0c69ba4d73ed5bdd591597502"
+  integrity sha512-vbXMHBszVioyPsuRDLEiPEgvkZnbjfdCFvLYV4jONNJqZNLWTwZ/gYSNh3SuiT1w9MRXUz+S7aX0B4Ar2XI8iw==
   dependencies:
-    "@sinonjs/commons" "^1.4.0"
+    "@sinonjs/commons" "^1.7.0"
     "@sinonjs/formatio" "^4.0.1"
     "@sinonjs/samsam" "^4.0.1"
     diff "^4.0.1"
@@ -8741,7 +8751,7 @@ supports-color@^7.1.0:
   dependencies:
     has-flag "^4.0.0"
 
-svg-inline-loader@0.8.0:
+svg-inline-loader@^0.8.0:
   version "0.8.0"
   resolved "http://nexus.groups.local/content/groups/npm-all/svg-inline-loader/-/svg-inline-loader-0.8.0.tgz#7e9d905d80d0b4e68d2df21afcd08ee9e9a3ea6e"
   integrity sha512-rynplY2eXFrdNomL1FvyTFQlP+dx0WqbzHglmNtA9M4IHRC3no2aPAl3ny9lUpJzFzFMZfWRK5YIclNU+FRePA==
@@ -9471,6 +9481,11 @@ webpack-merge@^4.2.2:
   dependencies:
     lodash "^4.17.15"
 
+webpack-node-externals@^1.7.2:
+  version "1.7.2"
+  resolved "http://nexus.groups.local/content/groups/npm-all/webpack-node-externals/-/webpack-node-externals-1.7.2.tgz#6e1ee79ac67c070402ba700ef033a9b8d52ac4e3"
+  integrity sha512-ajerHZ+BJKeCLviLUUmnyd5B4RavLF76uv3cs6KNuO8W+HuQaEs0y0L7o40NQxdPy5w0pcv8Ew7yPUAQG0UdCg==
+
 webpack-sources@^1.1.0, webpack-sources@^1.3.0, webpack-sources@^1.4.0, webpack-sources@^1.4.1, webpack-sources@^1.4.3:
   version "1.4.3"
   resolved "http://nexus.groups.local/content/groups/npm-all/webpack-sources/-/webpack-sources-1.4.3.tgz#eedd8ec0b928fbf1cbfe994e22d2d890f330a933"
@@ -9479,7 +9494,7 @@ webpack-sources@^1.1.0, webpack-sources@^1.3.0, webpack-sources@^1.4.0, webpack-
     source-list-map "^2.0.0"
     source-map "~0.6.1"
 
-webpack@4.41.4:
+webpack@^4.41.4:
   version "4.41.4"
   resolved "http://nexus.groups.local/content/groups/npm-all/webpack/-/webpack-4.41.4.tgz#4bec4125224bdf50efa8be6226c19047599cd034"
   integrity sha512-Lc+2uB6NjpCWsHI3trkoISOI64h9QYIXenbEWj3bn3oyjfB1lEBXjWAfAyY2sM0rZn41oD5V91OLwKRwS6Wp8Q==
