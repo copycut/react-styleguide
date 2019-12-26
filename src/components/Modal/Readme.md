@@ -1,16 +1,9 @@
     import Button from '../../components/Button';
     import ButtonGroup from '../ButtonGroup';
-    
+
     initialState = {
       content: 'Default content',
-      isOpen: false,
-      isReverse: false,
-      isDismissible: false,
-      hasBackdrop: false,
-      title: 'Default Title',
-      titleDirection: 'center',
-      footerDirection: 'right',
-      width: 'normal'
+      isOpen: false
     };
 
     const toggle = () => setState({ isOpen: !state.isOpen });
@@ -20,10 +13,9 @@
 
       <Modal
         isOpen={state.isOpen}
-        isReverse={state.isReverse}
-        title={state.title}
-        isDismissible={state.isDismissible}
-        hasBackdrop={state.hasBackdrop}
+        title="Default Title"
+        isDismissible
+        hasBackdrop
         onDismiss={toggle}
         footer={
           <ButtonGroup>
@@ -31,9 +23,7 @@
             <Button color='primary' onClick={toggle}>Do it!</Button>
           </ButtonGroup>
         }
-        footerDirection={state.footerDirection}
-        titleDirection={state.titleDirection}
-        width={state.width}>
+        footerDirection="right">
         {state.content}
       </Modal>
     </div>

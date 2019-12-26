@@ -1,7 +1,6 @@
 import '@styleguide/src/styles/global.scss';
 
 export { default as Alert } from './components/Alert/Alert';
-export { default as Backdrop } from './components/Backdrop/Backdrop';
 export { default as Button } from './components/Button/Button';
 export { default as ButtonGroup } from './components/ButtonGroup/ButtonGroup';
 export { default as Card } from './components/Card/Card';

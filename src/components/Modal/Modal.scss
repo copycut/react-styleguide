@@ -59,6 +59,28 @@
     }
   }
 
+  .rsg__modal__backdrop {
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba($black, 0.5);
+    z-index: $zindex-modal-bg;
+    user-select: none;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity $speed $ease;
+
+    &.rsg__modal__backdrop--open {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
   .rsg__modal__title {
     text-align: left;
     padding: $padding $padding $paddingExtraSmall $padding;
@@ -107,12 +129,6 @@
 }
 
 .rsg__modal {
-  &.rsg__modal--touched {
-    .rsg__modal__box {
-      animation-name: rsg__zoomOut;
-    }
-  }
-
   &.rsg__modal--open {
     user-select: auto;
     pointer-events: auto;
@@ -121,25 +137,6 @@
       animation-name: rsg__zoomIn;
       transform: none;
       opacity: 1;
-    }
-  }
-
-  &.rsg__modal--reverse {
-    .rsg__modal__box {
-      background-color: $greyDarker;
-      border: none;
-    }
-
-    .rsg__modal__title {
-      color: $white;
-    }
-
-    .rsg__modal__close .rsg__icon {
-      fill: $white;
-    }
-
-    .rsg__modal__content {
-      color: $white;
     }
   }
 

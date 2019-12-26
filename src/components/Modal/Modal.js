@@ -1,19 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Backdrop from '@styleguide/src/components/Backdrop';
 import Button from '@styleguide/src/components/Button';
 import Title from '@styleguide/src/components/Title';
 import './Modal.scss';
 
-export default class Modal extends Component {
+export default class Modal extends React.PureComponent {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     hasBackdrop: PropTypes.bool,
     isDismissible: PropTypes.bool,
     isOpen: PropTypes.bool,
-    isReverse: PropTypes.bool,
     footer: PropTypes.element,
     footerDirection: PropTypes.oneOf(['left', 'center', 'right']),
     onDismiss: PropTypes.func,
@@ -30,11 +28,6 @@ export default class Modal extends Component {
       'max'
     ]),
     id: PropTypes.string
-  };
-
-  state = {
-    isOpen: false,
-    isPristine: true
   };
 
   componentDidMount() {
@@ -96,7 +89,15 @@ export default class Modal extends Component {
       return;
     }
 
-    return <Backdrop isOpen={this.state.isOpen} onClick={this.close} />;
+    return (
+      <div
+        className={classnames({
+          rsg__modal__backdrop: true,
+          'rsg__modal__backdrop--open': this.props.isOpen
+        })}
+        onClick={this.close}
+      />
+    );
   }
 
   renderFooter() {
@@ -117,10 +118,8 @@ export default class Modal extends Component {
     const classNames = classnames(
       {
         rsg__modal: true,
-        'rsg__modal--open': this.state.isOpen,
+        'rsg__modal--open': this.props.isOpen,
         'rsg__modal--dismissible': this.props.isDismissible,
-        'rsg__modal--reverse': this.props.isReverse,
-        'rsg__modal--touched': !this.state.isPristine,
         [`rsg__modal--${this.props.width}`]: this.props.width
       },
       this.props.className
