@@ -1,9 +1,8 @@
-
 import React from 'react';
 import { expect } from 'chai';
 import { render, mount } from 'enzyme';
+import { spy } from 'sinon';
 import Radio from './Radio';
-import sinon from 'sinon';
 
 describe('Radio', () => {
   it('must be unchecked by default', () => {
@@ -23,8 +22,8 @@ describe('Radio', () => {
   });
 
   it('click return the reverse checked state', () => {
-    const mockClick = sinon.spy();
-    const mockChange = sinon.spy();
+    const mockClick = spy();
+    const mockChange = spy();
     const wrapper = mount(
       <Radio isChecked onClick={mockClick} onChange={mockChange} />
     );
@@ -36,8 +35,8 @@ describe('Radio', () => {
   });
 
   it('click return the reverse checked state', () => {
-    const mockClick = sinon.spy();
-    const mockChange = sinon.spy();
+    const mockClick = spy();
+    const mockChange = spy();
     const wrapper = mount(<Radio />);
     wrapper.simulate('click');
     expect(mockClick.called).to.be.equal(false);
@@ -45,8 +44,8 @@ describe('Radio', () => {
   });
 
   it('click on disabled radio do nothing', () => {
-    const mockClick = sinon.spy();
-    const mockChange = sinon.spy();
+    const mockClick = spy();
+    const mockChange = spy();
     const wrapper = mount(
       <Radio
         isDisabled
@@ -63,8 +62,7 @@ describe('Radio', () => {
 
   it('overwrite style', () => {
     const wrapper = render(<Radio style={{ color: 'red' }} />);
-    const stylesArray = wrapper.children()[0].attribs.style.split(';');
-    expect(stylesArray.indexOf('color:red')).to.be.not.equal(-1);
+    expect(wrapper.prop('style').color).to.be.equal('red');
   });
 
   it('must add className', () => {
@@ -74,6 +72,6 @@ describe('Radio', () => {
 
   it('must add id', () => {
     const wrapper = render(<Radio id="test" />);
-    expect(wrapper.children()[0].attribs.id).to.be.equal('test');
+    expect(wrapper.prop('id')).to.be.equal('test');
   });
 });

@@ -30,6 +30,6 @@ describe('Panel', () => {
 
   it('must add id', () => {
     const wrapper = render(<Panel id="test">test</Panel>);
-    expect(wrapper.children()[0].attribs.id).to.be.equal('test');
+    expect(wrapper.prop('id')).to.be.equal('test');
   });
 });

@@ -1,19 +1,19 @@
 import React from 'react';
 import { expect } from 'chai';
-import { render, shallow } from 'enzyme';
-import sinon from 'sinon';
+import { shallow } from 'enzyme';
+import { spy } from 'sinon';
 import Button from './Button';
 import Icon from '@styleguide/src/elements/Icon';
 
 describe('Button', () => {
-  it('must be rendered as a button element', () => {
-    const wrapper = render(<Button>test</Button>);
-    expect(wrapper.children()[0].name).to.equal('button');
+  it('must be rendered as a BUTTON element by default', () => {
+    const wrapper = shallow(<Button>test</Button>);
+    expect(wrapper.name()).to.equal('button');
   });
 
-  it('became a link with href', () => {
-    const wrapper = render(<Button href="#">test</Button>);
-    expect(wrapper.children()[0].name).to.equal('a');
+  it('must be rendered as a A element with href', () => {
+    const wrapper = shallow(<Button href="#">test</Button>);
+    expect(wrapper.name()).to.equal('a');
   });
 
   it('must render icon', () => {
@@ -22,13 +22,12 @@ describe('Button', () => {
         test
       </Button>
     );
-    expect(wrapper.find(Icon)).to.have.length(1);
+    expect(wrapper.find(Icon)).to.have.lengthOf(1);
   });
 
   it('overwrite style', () => {
-    const wrapper = render(<Button style={{ color: 'red' }}>test</Button>);
-    const stylesArray = wrapper.children()[0].attribs.style.split(';');
-    expect(stylesArray.indexOf('color:red')).to.be.not.equal(-1);
+    const wrapper = shallow(<Button style={{ color: 'red' }}>test</Button>);
+    expect(wrapper.prop('style').color).to.be.equal('red');
   });
 
   it('must add className', () => {
@@ -37,28 +36,28 @@ describe('Button', () => {
   });
 
   it('must dispatch click action', () => {
-    const mockClick = sinon.spy();
+    const mockClick = spy();
     const wrapper = shallow(<Button onClick={mockClick}>test</Button>);
     wrapper.simulate('click');
     expect(mockClick.called).to.be.equal(true);
   });
 
   it('must dispatch focus action', () => {
-    const mockFocus = sinon.spy();
+    const mockFocus = spy();
     const wrapper = shallow(<Button onFocus={mockFocus}>test</Button>);
     wrapper.simulate('focus');
     expect(mockFocus.called).to.be.equal(true);
   });
 
   it('must dispatch blur action', () => {
-    const mockBlur = sinon.spy();
+    const mockBlur = spy();
     const wrapper = shallow(<Button onBlur={mockBlur}>test</Button>);
     wrapper.simulate('blur');
     expect(mockBlur.called).to.be.equal(true);
   });
 
   it('must not dispatch click action when disabled', () => {
-    const mockClick = sinon.spy();
+    const mockClick = spy();
     const wrapper = shallow(
       <Button isDisabled onClick={mockClick}>
         test
@@ -69,7 +68,7 @@ describe('Button', () => {
   });
 
   it('must not dispatch focus action when disabled', () => {
-    const mockFocus = sinon.spy();
+    const mockFocus = spy();
     const wrapper = shallow(
       <Button isDisabled onFocus={mockFocus}>
         test
@@ -80,7 +79,7 @@ describe('Button', () => {
   });
 
   it('must not dispatch blur action when disabled', () => {
-    const mockBlur = sinon.spy();
+    const mockBlur = spy();
     const wrapper = shallow(
       <Button isDisabled onBlur={mockBlur}>
         test
@@ -92,7 +91,7 @@ describe('Button', () => {
   });
 
   it('must add id', () => {
-    const wrapper = render(<Button id="test">test</Button>);
-    expect(wrapper.children()[0].attribs.id).to.be.equal('test');
+    const wrapper = shallow(<Button id="test">test</Button>);
+    expect(wrapper.prop('id')).to.be.equal('test');
   });
 });

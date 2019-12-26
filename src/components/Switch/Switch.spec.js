@@ -1,8 +1,7 @@
-
 import React from 'react';
 import { expect } from 'chai';
 import { render, mount } from 'enzyme';
-import sinon from 'sinon';
+import { spy } from 'sinon';
 import Switch from './Switch';
 
 describe('Switch', () => {
@@ -17,8 +16,8 @@ describe('Switch', () => {
   });
 
   it('return the reverse props isActive', () => {
-    const mockClick = sinon.spy();
-    const mockChange = sinon.spy();
+    const mockClick = spy();
+    const mockChange = spy();
     const wrapper = mount(<Switch onClick={mockClick} onChange={mockChange} />);
     wrapper.simulate('click');
     expect(mockClick.called).to.be.equal(true);
@@ -28,7 +27,7 @@ describe('Switch', () => {
   });
 
   it("can't be activated by click when disabled", () => {
-    const mockClick = sinon.spy();
+    const mockClick = spy();
     const wrapper = mount(<Switch isDisabled onClick={mockClick} />);
     wrapper.simulate('click');
     expect(mockClick.called).to.be.equal(false);
@@ -48,6 +47,6 @@ describe('Switch', () => {
 
   it('must add id', () => {
     const wrapper = render(<Switch id="test" />);
-    expect(wrapper.children()[0].attribs.id).to.be.equal('test');
+    expect(wrapper.prop('id')).to.be.equal('test');
   });
 });

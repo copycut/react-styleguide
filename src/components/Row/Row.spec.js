@@ -8,8 +8,7 @@ import Row from './Row';
 describe('Row', () => {
   it('overwrite style when provided', () => {
     const wrapper = render(<Row style={{ color: 'red' }}>test</Row>);
-    const stylesArray = wrapper.children()[0].attribs.style.split(';');
-    expect(stylesArray.indexOf('color:red')).to.be.not.equal(-1);
+    expect(wrapper.prop('style').color).to.be.equal('red');
   });
 
   it('must add className', () => {
@@ -19,6 +18,6 @@ describe('Row', () => {
 
   it('must add id', () => {
     const wrapper = render(<Row id="test">test</Row>);
-    expect(wrapper.children()[0].attribs.id).to.be.equal('test');
+    expect(wrapper.prop('id')).to.be.equal('test');
   });
 });

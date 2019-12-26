@@ -1,14 +1,12 @@
 import React from 'react';
 import { expect } from 'chai';
-import { render, shallow } from 'enzyme';
-
+import { shallow } from 'enzyme';
 import Card from './Card';
 
 describe('Card', () => {
   it('overwrite style when provided', () => {
-    const wrapper = render(<Card style={{ color: 'red' }}>test</Card>);
-    const stylesArray = wrapper.children()[0].attribs.style.split(';');
-    expect(stylesArray.indexOf('color:red')).to.be.not.equal(-1);
+    const wrapper = shallow(<Card style={{ color: 'red' }}>test</Card>);
+    expect(wrapper.prop('style').color).to.be.equal('red');
   });
 
   it('must add className', () => {
@@ -17,7 +15,7 @@ describe('Card', () => {
   });
 
   it('must add id', () => {
-    const wrapper = render(<Card id="test">test</Card>);
-    expect(wrapper.children()[0].attribs.id).to.be.equal('test');
+    const wrapper = shallow(<Card id="test">test</Card>);
+    expect(wrapper.prop('id')).to.be.equal('test');
   });
 });
