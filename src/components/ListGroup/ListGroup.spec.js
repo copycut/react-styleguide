@@ -9,8 +9,7 @@ describe('ListGroup', () => {
     const wrapper = render(
       <ListGroup style={{ color: 'red' }}>test</ListGroup>
     );
-    const stylesArray = wrapper.children()[0].attribs.style.split(';');
-    expect(stylesArray.indexOf('color:red')).to.be.not.equal(-1);
+    expect(wrapper.prop('style').color).to.be.equal('red');
   });
 
   it('must add className', () => {
@@ -20,6 +19,6 @@ describe('ListGroup', () => {
 
   it('must add id', () => {
     const wrapper = render(<ListGroup id="test">test</ListGroup>);
-    expect(wrapper.children()[0].attribs.id).to.be.equal('test');
+    expect(wrapper.prop('id')).to.be.equal('test');
   });
 });

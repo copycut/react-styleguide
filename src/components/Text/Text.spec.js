@@ -8,8 +8,7 @@ import Text from './Text';
 describe('Text', () => {
   it('overwrite style when provided', () => {
     const wrapper = render(<Text style={{ color: 'red' }}>test</Text>);
-    const stylesArray = wrapper.children()[0].attribs.style.split(';');
-    expect(stylesArray.indexOf('color:red')).to.be.not.equal(-1);
+    expect(wrapper.prop('style').color).to.be.equal('red');
   });
 
   it('must add className', () => {
@@ -44,6 +43,6 @@ describe('Text', () => {
 
   it('must add id', () => {
     const wrapper = render(<Text id="test">test</Text>);
-    expect(wrapper.children()[0].attribs.id).to.be.equal('test');
+    expect(wrapper.prop('id')).to.be.equal('test');
   });
 });

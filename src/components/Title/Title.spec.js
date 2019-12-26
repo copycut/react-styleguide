@@ -7,8 +7,7 @@ import Title from './Title';
 describe('Title', () => {
   it('overwrite style when provided', () => {
     const wrapper = render(<Title style={{ color: 'red' }}>test</Title>);
-    const stylesArray = wrapper.children()[0].attribs.style.split(';');
-    expect(stylesArray.indexOf('color:red')).to.be.not.equal(-1);
+    expect(wrapper.prop('style').color).to.be.equal('red');
   });
 
   it('must add className', () => {
@@ -28,6 +27,6 @@ describe('Title', () => {
 
   it('must add id', () => {
     const wrapper = render(<Title id="test" />);
-    expect(wrapper.children()[0].attribs.id).to.be.equal('test');
+    expect(wrapper.prop('id')).to.be.equal('test');
   });
 });

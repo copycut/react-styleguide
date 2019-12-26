@@ -1,15 +1,13 @@
-
 import React from 'react';
 import { expect } from 'chai';
 import { render, shallow } from 'enzyme';
-import sinon from 'sinon';
+import { spy } from 'sinon';
 import Tag from './Tag';
 
 describe('Tag', () => {
   it('overwrite style when provided', () => {
     const wrapper = render(<Tag style={{ color: 'red' }}>test</Tag>);
-    const stylesArray = wrapper.children()[0].attribs.style.split(';');
-    expect(stylesArray.indexOf('color:red')).to.be.not.equal(-1);
+    expect(wrapper.prop('style').color).to.be.equal('red');
   });
 
   it('must add className', () => {
@@ -18,14 +16,14 @@ describe('Tag', () => {
   });
 
   it('can be clicked', () => {
-    const mockClick = sinon.spy();
+    const mockClick = spy();
     const wrapper = shallow(<Tag onClick={mockClick}>test</Tag>);
     wrapper.simulate('click');
     expect(mockClick.called).to.be.equal(true);
   });
 
   it('can be close', () => {
-    const mockClick = sinon.spy();
+    const mockClick = spy();
     const wrapper = shallow(
       <Tag isDismissible onClose={mockClick}>
         test
@@ -36,7 +34,7 @@ describe('Tag', () => {
   });
 
   it('cannot be clicked when disabled', () => {
-    const mockClick = sinon.spy();
+    const mockClick = spy();
     const wrapper = shallow(
       <Tag onClick={mockClick} isDisabled>
         test
@@ -47,7 +45,7 @@ describe('Tag', () => {
   });
 
   it('cannot be close when disabled', () => {
-    const mockClick = sinon.spy();
+    const mockClick = spy();
     const wrapper = shallow(
       <Tag onClose={mockClick} isDisabled isDismissible>
         test
@@ -59,6 +57,6 @@ describe('Tag', () => {
 
   it('must add id', () => {
     const wrapper = render(<Tag id="test">test</Tag>);
-    expect(wrapper.children()[0].attribs.id).to.be.equal('test');
+    expect(wrapper.prop('id')).to.be.equal('test');
   });
 });

@@ -1,13 +1,12 @@
-
 import React from 'react';
 import { expect } from 'chai';
-import { render, mount } from 'enzyme';
-import sinon from 'sinon';
+import { render, mount, shallow } from 'enzyme';
+import { spy } from 'sinon';
 import Pagination from './Pagination';
 
 describe('Pagination', () => {
   it('overwrite style when provided', () => {
-    const wrapper = render(
+    const wrapper = shallow(
       <Pagination
         itemsCount={100}
         itemsPerPage={10}
@@ -15,12 +14,11 @@ describe('Pagination', () => {
         style={{ color: 'red' }}
       />
     );
-    const stylesArray = wrapper.children()[0].attribs.style.split(';');
-    expect(stylesArray.indexOf('color:red')).to.be.not.equal(-1);
+    expect(wrapper.prop('style').color).to.be.equal('red');
   });
 
   it('must add className', () => {
-    const wrapper = mount(
+    const wrapper = shallow(
       <Pagination
         itemsCount={100}
         itemsPerPage={10}
@@ -40,7 +38,7 @@ describe('Pagination', () => {
         onChange={() => {}}
       />
     );
-    expect(wrapper.find('.sg__pagination__direction').length).to.be.equal(2);
+    return expect(wrapper.find('.rsg__pagination__direction')).to.exist;
   });
 
   it('enable first/last buttons', () => {
@@ -52,7 +50,7 @@ describe('Pagination', () => {
         onChange={() => {}}
       />
     );
-    expect(wrapper.find('.sg__pagination__direction').length).to.be.equal(2);
+    return expect(wrapper.find('.rsg__pagination__direction')).to.exist;
   });
 
   it('enable page info', () => {
@@ -64,7 +62,7 @@ describe('Pagination', () => {
         onChange={() => {}}
       />
     );
-    expect(wrapper.find('.sg__pagination__form').length).to.be.equal(1);
+    return expect(wrapper.find('.rsg__pagination__form')).to.exist;
   });
 
   it('enable page info with label', () => {
@@ -77,7 +75,9 @@ describe('Pagination', () => {
         onChange={() => {}}
       />
     );
-    expect(wrapper.find('.sg__pagination__form').text()).to.be.contains('test');
+    expect(wrapper.find('.rsg__pagination__form').text()).to.be.contains(
+      'test'
+    );
   });
 
   it('enable items info', () => {
@@ -89,7 +89,7 @@ describe('Pagination', () => {
         onChange={() => {}}
       />
     );
-    expect(wrapper.find('.sg__note').length).to.be.equal(1);
+    expect(wrapper.find('.rsg__note').length).to.be.equal(1);
   });
 
   it('enable items info with label', () => {
@@ -102,7 +102,7 @@ describe('Pagination', () => {
         onChange={() => {}}
       />
     );
-    expect(wrapper.find('.sg__note').text()).to.be.contains('test');
+    expect(wrapper.find('.rsg__note').text()).to.be.contains('test');
   });
 
   it('on first page, the previous button is disabled', () => {
@@ -142,7 +142,7 @@ describe('Pagination', () => {
   });
 
   it('click on page 2 return 2', () => {
-    const mockClick = sinon.spy();
+    const mockClick = spy();
     const wrapper = mount(
       <Pagination
         itemsCount={100}
@@ -151,31 +151,37 @@ describe('Pagination', () => {
       />
     );
     wrapper
-      .find('.sg__pagination__pagesGroup Button')
+      .find('.rsg__pagination__pagesGroup Button')
       .at(1)
       .simulate('click');
     expect(mockClick.args[0][0]).to.be.equal(2);
   });
 
   it('click on next go to next page', () => {
-    const mockClick = sinon.spy();
+    const mockClick = spy();
     const wrapper = mount(
       <Pagination
         itemsCount={100}
         itemsPerPage={10}
         hasPrevNext
-        onChange={page => mockClick(page)}
+        onChange={mockClick}
       />
     );
+
+    console.log(wrapper.find('.rsg__pagination__direction'));
+
     wrapper
-      .find('.sg__pagination__direction')
+      .find('.rsg__pagination__direction')
       .at(1)
       .simulate('click');
+
+    console.log(mockClick.args);
+
     expect(mockClick.args[0][0]).to.be.equal(2);
   });
 
   it('click on prev go to previous page', () => {
-    const mockClick = sinon.spy();
+    const mockClick = spy();
     const wrapper = mount(
       <Pagination
         activePage={3}
@@ -186,14 +192,14 @@ describe('Pagination', () => {
       />
     );
     wrapper
-      .find('.sg__pagination__direction')
+      .find('.rsg__pagination__direction')
       .at(0)
       .simulate('click');
     expect(mockClick.args[0][0]).to.be.equal(2);
   });
 
   it('click on first go to first page', () => {
-    const mockClick = sinon.spy();
+    const mockClick = spy();
     const wrapper = mount(
       <Pagination
         activePage={3}
@@ -204,14 +210,14 @@ describe('Pagination', () => {
       />
     );
     wrapper
-      .find('.sg__pagination__direction')
+      .find('.rsg__pagination__direction')
       .at(0)
       .simulate('click');
     expect(mockClick.args[0][0]).to.be.equal(1);
   });
 
   it('click on last go to last page', () => {
-    const mockClick = sinon.spy();
+    const mockClick = spy();
     const wrapper = mount(
       <Pagination
         activePage={3}
@@ -222,14 +228,14 @@ describe('Pagination', () => {
       />
     );
     wrapper
-      .find('.sg__pagination__direction')
+      .find('.rsg__pagination__direction')
       .at(1)
       .simulate('click');
     expect(mockClick.args[0][0]).to.be.equal(10);
   });
 
   it('change input page number return the allowed page', () => {
-    const mockClick = sinon.spy();
+    const mockClick = spy();
     const wrapper = mount(
       <Pagination
         itemsCount={100}
@@ -259,7 +265,7 @@ describe('Pagination', () => {
   });
 
   it('change input above page range max', () => {
-    const mockClick = sinon.spy();
+    const mockClick = spy();
     const wrapper = mount(
       <Pagination
         itemsCount={100}
@@ -307,6 +313,6 @@ describe('Pagination', () => {
 
   it('must add id', () => {
     const wrapper = render(<Pagination id="test" />);
-    expect(wrapper.children()[0].attribs.id).to.be.equal('test');
+    expect(wrapper.prop('id')).to.be.equal('test');
   });
 });

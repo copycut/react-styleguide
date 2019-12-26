@@ -1,16 +1,12 @@
-
 import React from 'react';
 import { expect } from 'chai';
-import { render, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 import Menu from './Menu';
 
 describe('Menu', () => {
   it('overwrite style when provided', () => {
-    const wrapper = render(
-      <Menu style={{ backgroundColor: 'red' }}>test</Menu>
-    );
-    const stylesArray = wrapper.children()[0].attribs.style.split(';');
-    expect(stylesArray.indexOf('background-color:red')).to.be.not.equal(-1);
+    const wrapper = shallow(<Menu style={{ color: 'red' }}>test</Menu>);
+    expect(wrapper.prop('style').color).to.be.equal('red');
   });
 
   it('must add className', () => {
@@ -19,7 +15,7 @@ describe('Menu', () => {
   });
 
   it('must add id', () => {
-    const wrapper = render(<Menu id="test">test</Menu>);
-    expect(wrapper.children()[0].attribs.id).to.be.equal('test');
+    const wrapper = shallow(<Menu id="test">test</Menu>);
+    expect(wrapper.prop('id')).to.be.equal('test');
   });
 });

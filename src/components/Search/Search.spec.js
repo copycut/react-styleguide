@@ -1,13 +1,12 @@
-
 import React from 'react';
 import { expect } from 'chai';
 import { shallow, render, mount } from 'enzyme';
-import sinon from 'sinon';
+import { spy } from 'sinon';
 import Search from './Search';
 
 describe('Search', () => {
   it('must return inputed search string when change', () => {
-    const mockChange = sinon.spy();
+    const mockChange = spy();
     const wrapper = mount(<Search onChange={mockChange} />);
     wrapper.find('input').node.value = 'test';
     wrapper.find('input').simulate('change');
@@ -15,15 +14,14 @@ describe('Search', () => {
   });
 
   it('overwrite style', () => {
-    const mockChange = sinon.spy();
+    const mockChange = spy();
     const wrapper = render(<Search style={{ color: 'red' }} />);
-    const stylesArray = wrapper.children()[0].attribs.style.split(';');
-    expect(stylesArray.indexOf('color:red')).to.be.not.equal(-1);
+    expect(wrapper.prop('style').color).to.be.equal('red');
     expect(mockChange.called).to.be.equal(false);
   });
 
   it('onChange func must be provided', () => {
-    const mockChange = sinon.spy();
+    const mockChange = spy();
     const wrapper = mount(<Search />);
     wrapper.find('input').node.value = 'test';
     wrapper.find('input').simulate('change');

@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { render, mount } from 'enzyme';
 import Tabs from './Tabs';
 import Tab from '../../components/Tab';
-import sinon from 'sinon';
+import { spy } from 'sinon';
 
 describe('Tabs', () => {
   it('overwrite style when provided', () => {
@@ -31,8 +31,8 @@ describe('Tabs', () => {
   });
 
   it('dispatch tabActive when clicked', () => {
-    const mockClick = sinon.spy();
-    const mockChange = sinon.spy();
+    const mockClick = spy();
+    const mockChange = spy();
     const wrapper = mount(
       <Tabs onClick={mockClick} onChange={mockChange}>
         <Tab title="first">First</Tab>
@@ -55,6 +55,6 @@ describe('Tabs', () => {
         <Tab title="tab">Tab</Tab>
       </Tabs>
     );
-    expect(wrapper.children()[0].attribs.id).to.be.equal('test');
+    expect(wrapper.prop('id')).to.be.equal('test');
   });
 });

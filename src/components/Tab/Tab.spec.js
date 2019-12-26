@@ -7,8 +7,7 @@ import Tab from './Tab';
 describe('Tab', () => {
   it('overwrite style when provided', () => {
     const wrapper = render(<Tab style={{ color: 'red' }}>test</Tab>);
-    const stylesArray = wrapper.children()[0].attribs.style.split(';');
-    expect(stylesArray.indexOf('color:red')).to.be.not.equal(-1);
+    expect(wrapper.prop('style').color).to.be.equal('red');
   });
 
   it('must add className', () => {
@@ -18,6 +17,6 @@ describe('Tab', () => {
 
   it('must add id', () => {
     const wrapper = render(<Tab id="test">test</Tab>);
-    expect(wrapper.children()[0].attribs.id).to.be.equal('test');
+    expect(wrapper.prop('id')).to.be.equal('test');
   });
 });

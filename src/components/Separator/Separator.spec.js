@@ -23,6 +23,6 @@ describe('Separator', () => {
 
   it('must add id', () => {
     const wrapper = render(<Separator id="test" />);
-    expect(wrapper.children()[0].attribs.id).to.be.equal('test');
+    expect(wrapper.prop('id')).to.be.equal('test');
   });
 });

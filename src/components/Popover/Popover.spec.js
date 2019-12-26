@@ -1,15 +1,13 @@
-
 import React from 'react';
 import { expect } from 'chai';
 import { render, mount } from 'enzyme';
-import sinon from 'sinon';
+import { spy } from 'sinon';
 import Popover from './Popover';
 
 describe('Popover', () => {
   it('overwrite style when provided', () => {
     const wrapper = render(<Popover title="test" style={{ color: 'red' }} />);
-    const stylesArray = wrapper.children()[0].attribs.style.split(';');
-    expect(stylesArray.indexOf('color:red')).to.be.not.equal(-1);
+    expect(wrapper.prop('style').color).to.be.equal('red');
   });
 
   it('hidden by default', () => {
@@ -58,14 +56,14 @@ describe('Popover', () => {
   });
 
   it('must dispatch onClick function to popover button', () => {
-    const mockClick = sinon.spy();
+    const mockClick = spy();
     const wrapper = mount(<Popover onClick={mockClick} buttonText="test" />);
     wrapper.find('.sg__popover__button').simulate('click');
     expect(mockClick.called).to.be.equal(true);
   });
 
   it('cannot be active if disabled', () => {
-    const mockClick = sinon.spy();
+    const mockClick = spy();
     const wrapper = mount(
       <Popover isDisabled onClick={mockClick} buttonText="test" />
     );
@@ -88,6 +86,6 @@ describe('Popover', () => {
 
   it('must add id', () => {
     const wrapper = render(<Popover id="test" />);
-    expect(wrapper.children()[0].attribs.id).to.be.equal('test');
+    expect(wrapper.prop('id')).to.be.equal('test');
   });
 });

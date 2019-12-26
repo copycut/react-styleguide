@@ -2,7 +2,7 @@ import React from 'react';
 import { expect } from 'chai';
 import { render, shallow } from 'enzyme';
 import Rating from './Rating';
-import sinon from 'sinon';
+import { spy } from 'sinon';
 
 describe('Rating', () => {
   it('overwrite style when provided', () => {
@@ -19,7 +19,7 @@ describe('Rating', () => {
   });
 
   it('must return a rating value on click', () => {
-    const mockFunction = sinon.spy();
+    const mockFunction = spy();
     const wrapper = shallow(<Rating onRating={mockFunction} />);
     const getBoundingClientRect = () => {
       return { left: 0, width: 100 };
@@ -36,7 +36,7 @@ describe('Rating', () => {
   });
 
   it('must return a rating value on touch', () => {
-    const mockFunction = sinon.spy();
+    const mockFunction = spy();
     const wrapper = shallow(<Rating onRating={mockFunction} />);
     const getBoundingClientRect = () => {
       return { left: 0, width: 100 };
@@ -55,7 +55,7 @@ describe('Rating', () => {
   });
 
   it('must return a rating value on mouse events', () => {
-    const mockFunction = sinon.spy();
+    const mockFunction = spy();
     const wrapper = shallow(<Rating onRating={mockFunction} />);
     const getBoundingClientRect = () => {
       return { left: 0, width: 100 };
@@ -75,14 +75,14 @@ describe('Rating', () => {
   });
 
   it('must exit if no function exists', () => {
-    const mockFunction = sinon.spy();
+    const mockFunction = spy();
     const wrapper = shallow(<Rating />);
     wrapper.find('.sg__rating__slider').simulate('click', { type: 'click' });
     expect(mockFunction.notCalled).to.be.equal(true);
   });
 
   it('do nothing if isDisabled', () => {
-    const mockFunction = sinon.spy();
+    const mockFunction = spy();
     const wrapper = shallow(<Rating onRating={mockFunction} isDisabled />);
     wrapper.find('.sg__rating__slider').simulate('click', { type: 'click' });
     expect(mockFunction.notCalled).to.be.equal(true);
@@ -90,6 +90,6 @@ describe('Rating', () => {
 
   it('must add id', () => {
     const wrapper = render(<Rating id="test" />);
-    expect(wrapper.children()[0].attribs.id).to.be.equal('test');
+    expect(wrapper.prop('id')).to.be.equal('test');
   });
 });

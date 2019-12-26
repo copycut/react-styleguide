@@ -1,8 +1,7 @@
-
 import React from 'react';
 import { expect } from 'chai';
 import { render, mount } from 'enzyme';
-import sinon from 'sinon';
+import { spy } from 'sinon';
 import Checkbox from './Checkbox';
 
 describe('Checkbox', () => {
@@ -12,8 +11,8 @@ describe('Checkbox', () => {
   });
 
   it('click on disabled checkbox do nothing', () => {
-    const mockClick = sinon.spy();
-    const mockChange = sinon.spy();
+    const mockClick = spy();
+    const mockChange = spy();
     const wrapper = mount(
       <Checkbox
         isDisabled
@@ -29,8 +28,8 @@ describe('Checkbox', () => {
   });
 
   it('must provide onClick or onChange to get value', () => {
-    const mockClick = sinon.spy();
-    const mockChange = sinon.spy();
+    const mockClick = spy();
+    const mockChange = spy();
     const wrapper = mount(<Checkbox />);
     wrapper.simulate('click');
     expect(mockClick.called).to.be.equal(false);
@@ -38,8 +37,8 @@ describe('Checkbox', () => {
   });
 
   it('click dispatch onClick with value', () => {
-    const mockChange = sinon.spy();
-    const mockClick = sinon.spy();
+    const mockChange = spy();
+    const mockClick = spy();
     const wrapper = mount(
       <Checkbox onClick={mockClick} onChange={mockChange} />
     );
@@ -50,13 +49,12 @@ describe('Checkbox', () => {
 
   it('must provide the label', () => {
     const wrapper = mount(<Checkbox label="test" />);
-    expect(wrapper.find('.sg__checkbox__label').exists()).to.be.equal(true);
+    expect(wrapper.find('.rsg__checkbox__label').exists()).to.be.equal(true);
   });
 
   it('overwrite style', () => {
     const wrapper = render(<Checkbox style={{ color: 'red' }} />);
-    const stylesArray = wrapper.children()[0].attribs.style.split(';');
-    expect(stylesArray.indexOf('color:red')).to.be.not.equal(-1);
+    expect(wrapper.prop('style').color).to.be.equal('red');
   });
 
   it('must add className', () => {
@@ -66,6 +64,6 @@ describe('Checkbox', () => {
 
   it('must add id', () => {
     const wrapper = render(<Checkbox id="test">test</Checkbox>);
-    expect(wrapper.children()[0].attribs.id).to.be.equal('test');
+    expect(wrapper.prop('id')).to.be.equal('test');
   });
 });

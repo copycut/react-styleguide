@@ -1,45 +1,38 @@
-
 import React from 'react';
 import { expect } from 'chai';
-import { render, mount } from 'enzyme';
-import sinon from 'sinon';
+import { mount, shallow } from 'enzyme';
+import { spy } from 'sinon';
 import Dropdown from '../Dropdown';
 import MenuItem from '../MenuItem';
 import Link from '../Link';
 
 describe('Dropdown', () => {
   it('can be open by click', () => {
-    const wrapper = mount(<Dropdown label="test" />);
+    const wrapper = shallow(<Dropdown label="test" />);
     expect(wrapper.state().isOpen).to.be.equal(false);
-    expect(wrapper.find('.sg__dropdown--open').length).to.be.equal(0);
-
     wrapper.find('Button').simulate('click');
     expect(wrapper.state().isOpen).to.be.equal(true);
-    expect(wrapper.find('.sg__dropdown--open').length).to.be.equal(1);
   });
 
   it('can be disabled', () => {
-    const wrapper = mount(<Dropdown isDisabled label="test" />);
-    expect(wrapper.state().isOpen).to.be.equal(false);
+    const wrapper = shallow(<Dropdown isDisabled label="test" />);
     wrapper.find('Button').simulate('click');
     expect(wrapper.state().isOpen).to.be.equal(false);
   });
 
   it('can be open by default', () => {
-    const wrapper = mount(<Dropdown label="test" isOpen />);
+    const wrapper = shallow(<Dropdown label="test" isOpen />);
     expect(wrapper.state().isOpen).to.be.equal(true);
-    expect(wrapper.find('.sg__dropdown--open').length).to.be.equal(1);
   });
 
   it('can be close by click', () => {
-    const wrapper = mount(<Dropdown label="test" isOpen />);
+    const wrapper = shallow(<Dropdown label="test" isOpen />);
     wrapper.find('Button').simulate('click');
     expect(wrapper.state().isOpen).to.be.equal(false);
-    expect(wrapper.find('.sg__dropdown--open').length).to.be.equal(0);
   });
 
   it('stay open after click when isKeptOpen provided', () => {
-    const wrapper = mount(
+    const wrapper = shallow(
       <Dropdown label="test" isKeptOpen isOpen>
         <MenuItem>test</MenuItem>
       </Dropdown>
@@ -49,20 +42,17 @@ describe('Dropdown', () => {
   });
 
   it('overwrite style', () => {
-    const wrapper = render(
-      <Dropdown label="test" style={{ backgroundColor: 'red' }} />
-    );
-    const stylesArray = wrapper.children()[0].attribs.style.split(';');
-    expect(stylesArray.indexOf('background-color:red')).to.be.not.equal(-1);
+    const wrapper = shallow(<Dropdown label="test" style={{ color: 'red' }} />);
+    expect(wrapper.prop('style').color).to.be.equal('red');
   });
 
   it('must add className', () => {
-    const wrapper = mount(<Dropdown className="test" />);
+    const wrapper = shallow(<Dropdown className="test" />);
     expect(wrapper.hasClass('test')).to.be.equal(true);
   });
 
   it('must render child component', () => {
-    const wrapper = mount(
+    const wrapper = shallow(
       <Dropdown isOpen>
         <div className="test">test1</div>
       </Dropdown>
@@ -70,18 +60,13 @@ describe('Dropdown', () => {
     return expect(wrapper.find('.test')).to.exist;
   });
 
-  it('must render string as menuItem with isHeader', () => {
-    const wrapper = mount(<Dropdown isOpen>test</Dropdown>);
-    expect(wrapper.find('MenuItem').length).to.be.equal(1);
-  });
-
   it('must not render null children', () => {
-    const wrapper = mount(<Dropdown isOpen>{null}</Dropdown>);
+    const wrapper = shallow(<Dropdown isOpen>{null}</Dropdown>);
     expect(wrapper.find('MenuItem').length).to.be.equal(0);
   });
 
   it('must render multiples levels child components', () => {
-    const wrapper = mount(
+    const wrapper = shallow(
       <Dropdown isOpen>
         <MenuItem isHeader>test title</MenuItem>
         <MenuItem>
@@ -100,8 +85,8 @@ describe('Dropdown', () => {
   });
 
   it('can bind onClick function', () => {
-    const mockClick = sinon.spy();
-    const wrapper = mount(
+    const mockClick = spy();
+    const wrapper = shallow(
       <Dropdown isOpen label="label">
         <MenuItem className="test" onClick={mockClick}>
           item
@@ -121,13 +106,13 @@ describe('Dropdown', () => {
   });
 
   it('press Escape close the dropdown', () => {
-    const wrapper = mount(<Dropdown isOpen />);
-    wrapper.simulate('keydown', { which: 27 });
+    const wrapper = shallow(<Dropdown isOpen />);
+    wrapper.simulate('keydown', { which: 27, preventDefault: () => {} });
     expect(wrapper.state().isOpen).to.be.equal(false);
   });
 
   it('must add id', () => {
-    const wrapper = render(<Dropdown id="test">test</Dropdown>);
-    expect(wrapper.children()[0].attribs.id).to.be.equal('test');
+    const wrapper = shallow(<Dropdown id="test">test</Dropdown>);
+    expect(wrapper.prop('id')).to.be.equal('test');
   });
 });

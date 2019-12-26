@@ -7,7 +7,7 @@ import Alert from './Alert';
 describe('Alert', () => {
   it('must add a close icon when dismissible', () => {
     const wrapper = shallow(<Alert isDismissible>test</Alert>);
-    expect(wrapper.find('Icon')).to.have.length(1);
+    expect(wrapper.find('Icon')).to.have.lengthOf(1);
   });
 
   it('must dispatch action when click', () => {
@@ -26,15 +26,15 @@ describe('Alert', () => {
     expect(wrapper.find('Icon')).to.have.length(1);
   });
 
-  it('must get the color className', () => {
+  it('must get the color', () => {
     const wrapper = shallow(<Alert color="primary">test</Alert>);
-    expect(wrapper.node.props.className).to.include('primary');
+    const props = wrapper.props();
+    expect(props.className).to.include('primary');
   });
 
-  it('overwrite style when provided', () => {
-    const wrapper = render(<Alert style={{ color: 'red' }}>test</Alert>);
-    const stylesArray = wrapper.children()[0].attribs.style.split(';');
-    expect(stylesArray.indexOf('color:red')).to.be.not.equal(-1);
+  it('overwrite style', () => {
+    const wrapper = shallow(<Alert style={{ color: 'red' }}>test</Alert>);
+    expect(wrapper.prop('style').color).to.be.equal('red');
   });
 
   it('must add className', () => {
@@ -44,6 +44,6 @@ describe('Alert', () => {
 
   it('must add id', () => {
     const wrapper = render(<Alert id="test">test</Alert>);
-    expect(wrapper.children()[0].attribs.id).to.be.equal('test');
+    expect(wrapper.prop('id')).to.be.equal('test');
   });
 });

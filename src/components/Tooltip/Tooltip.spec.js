@@ -58,8 +58,7 @@ describe('Tooltip', () => {
 
   it('overwrite style when provided', () => {
     const wrapper = render(<Tooltip text="test" style={{ color: 'red' }} />);
-    const stylesArray = wrapper.children()[0].attribs.style.split(';');
-    expect(stylesArray.indexOf('color:red')).to.be.not.equal(-1);
+    expect(wrapper.prop('style').color).to.be.equal('red');
   });
 
   it('must add className', () => {
@@ -69,6 +68,6 @@ describe('Tooltip', () => {
 
   it('must add id', () => {
     const wrapper = render(<Tooltip text="test" id="test" />);
-    expect(wrapper.children()[0].attribs.id).to.be.equal('test');
+    expect(wrapper.prop('id')).to.be.equal('test');
   });
 });
