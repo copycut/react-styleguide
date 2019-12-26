@@ -89,27 +89,4 @@
       padding-right: 40px;
     }
   }
-
-  &.rsg__popover--reverse {
-    .rsg__popover__box {
-      background-color: $greyDarker;
-    }
-
-    .rsg__popover__title {
-      border-bottom-color: mix($greyDarker, $black, 70%);
-      color: $white;
-    }
-
-    .rsg__popover__close .rsg__icon {
-      fill: $white;
-    }
-
-    .rsg__popover__inner {
-      background-color: $greyDark;
-    }
-
-    .rsg__popover__content {
-      color: $white;
-    }
-  }
 }

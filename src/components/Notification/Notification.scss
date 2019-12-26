@@ -2,34 +2,26 @@
 
 .rsg__notification {
   position: fixed;
-  top: -60px;
+  top: 0;
   left: 0;
   right: 0;
-  z-index: ($zindex-navbar-fixed + 1);
-  height: 60px;
+  z-index: 1;
   overflow: hidden;
-  transition: top $speed $ease, bottom $speed $ease, opacity $speed $ease;
+  transition: transform $speed $ease, opacity $speed $ease;
   border-radius: 0;
-  text-align: center;
   margin: 0;
   opacity: 0;
+  transform: translateY(-100%);
 
   &.rsg__notification--active {
+    transform: translateY(0);
     opacity: 1;
   }
 
   &.rsg__notification--bottom {
     top: auto;
-    bottom: -60px;
-
-    &.rsg__notification--active {
-      top: auto;
-      bottom: 0;
-    }
-  }
-
-  &.rsg__notification--active {
-    top: 0;
+    bottom: 0;
+    transform: translateY(100%);
   }
 
   .rsg__alert__inner {

@@ -7,7 +7,6 @@ export default class Separator extends Component {
   static propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,
-    isReverse: PropTypes.bool,
     isVertical: PropTypes.bool,
     id: PropTypes.string
   };
@@ -16,7 +15,6 @@ export default class Separator extends Component {
     const classNames = classnames(
       {
         rsg__separator: true,
-        'rsg__separator--reverse': this.props.isReverse,
         'rsg__separator--vertical': this.props.isVertical
       },
       this.props.className

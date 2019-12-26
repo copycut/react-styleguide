@@ -1,8 +1,6 @@
+Horizontal
+
     <Separator />
-
-Reverse
-
-    <Separator isReverse />
 
 Vertical
 

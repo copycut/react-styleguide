@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Alert from '@styleguide/src/components/Alert';
 import './Notification.scss';
 
-export default class Notification extends Component {
+export default class Notification extends React.PureComponent {
   static propTypes = {
     isActive: PropTypes.bool,
     children: PropTypes.node,
@@ -12,35 +12,26 @@ export default class Notification extends Component {
     color: PropTypes.string,
     icon: PropTypes.string,
     iconColor: PropTypes.string,
-    onClick: PropTypes.func,
+    onDismiss: PropTypes.func,
     style: PropTypes.object,
     id: PropTypes.string,
     isDismissible: PropTypes.bool,
     placement: PropTypes.oneOf(['top', 'bottom'])
   };
 
-  state = {
-    isActive: false
-  };
-
-  componentDidMount() {
-    this.setState({ isActive: this.props.isActive || false });
-  }
-
-  handleOnClick = event => {
-    this.setState({ isActive: false });
-
-    if (this.props.onClick) {
-      return this.props.onClick(event);
+  handleOnDismiss = event => {
+    if (this.props.onDismiss) {
+      return this.props.onDismiss(event);
     }
   };
 
   render() {
+    const placement = this.props.placement || 'top';
     const classNames = classnames(
       {
         rsg__notification: true,
-        'rsg__notification--active': this.state.isActive,
-        [`rsg__notification--${this.props.placement}`]: this.props.placement
+        'rsg__notification--active': this.props.isActive,
+        [`rsg__notification--${placement}`]: placement
       },
       this.props.className
     );
@@ -50,7 +41,7 @@ export default class Notification extends Component {
         {...this.props}
         className={classNames}
         iconColor={this.props.iconColor}
-        onClick={this.handleOnClick}
+        onDismiss={this.handleOnDismiss}
         id={this.props.id}
       >
         {this.props.children}

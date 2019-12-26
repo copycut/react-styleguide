@@ -7,20 +7,13 @@ export default class Menu extends Component {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
-    isInverse: PropTypes.bool,
     onClick: PropTypes.func,
     style: PropTypes.object,
     id: PropTypes.string
   };
 
   render() {
-    const classNames = classnames(
-      {
-        rsg__menu: true,
-        'rsg__menu--inverse': this.props.isInverse
-      },
-      this.props.className
-    );
+    const classNames = classnames('rsg__menu', this.props.className);
 
     return (
       <div

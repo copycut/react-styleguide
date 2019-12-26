@@ -16,7 +16,6 @@ export default class Popover extends Component {
     isDisabled: PropTypes.bool,
     isDismissible: PropTypes.bool,
     onClick: PropTypes.func,
-    isReverse: PropTypes.bool,
     style: PropTypes.object,
     title: PropTypes.string,
     id: PropTypes.string
@@ -105,8 +104,7 @@ export default class Popover extends Component {
       {
         rsg__popover: true,
         'rsg__popover--active': this.state.isActive,
-        'rsg__popover--dismissible': this.props.isDismissible,
-        'rsg__popover--reverse': this.props.isReverse
+        'rsg__popover--dismissible': this.props.isDismissible
       },
       this.props.className
     );

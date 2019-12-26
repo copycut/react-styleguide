@@ -95,17 +95,5 @@
         padding: 1px;
       }
     }
-
-    @for $i from 1 through 12 {
-      &.rsg__buttonGroup--block--#{$i} {
-        > .rsg__button,
-        > .rsg__dropdown,
-        > .rsg__input,
-        > .rsg__search,
-        > .rsg__input__wrapper {
-          width: 100 / $i + '%';
-        }
-      }
-    }
   }
 }

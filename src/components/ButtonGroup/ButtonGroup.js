@@ -13,12 +13,10 @@ export default class ButtonGroup extends React.PureComponent {
   };
 
   render() {
-    const childrenAmount = React.Children.count(this.props.children);
     const classNames = classnames(
       {
         rsg__buttonGroup: true,
-        'rsg__buttonGroup--block': this.props.isBlock,
-        [`rsg__buttonGroup--block--${childrenAmount}`]: this.props.isBlock
+        'rsg__buttonGroup--block': this.props.isBlock
       },
       this.props.className
     );

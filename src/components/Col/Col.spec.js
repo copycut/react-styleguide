@@ -6,11 +6,7 @@ import Col from './Col';
 describe('Col', () => {
   it('overwrite style when provided', () => {
     const wrapper = shallow(<Col style={{ color: 'red' }}>test</Col>);
-    const stylesArray = wrapper
-      .render()
-      .children()[0]
-      .attribs.style.split(';');
-    expect(stylesArray.indexOf('color:red')).to.be.not.equal(-1);
+    expect(wrapper.prop('style').color).to.be.equal('red');
   });
 
   it('must add className', () => {
@@ -20,6 +16,6 @@ describe('Col', () => {
 
   it('must add id', () => {
     const wrapper = render(<Col id="test">test</Col>);
-    expect(wrapper.children()[0].attribs.id).to.be.equal('test');
+    expect(wrapper.prop('id')).to.be.equal('test');
   });
 });

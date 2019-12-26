@@ -47,7 +47,7 @@ export default class Dropdown extends Component {
   };
 
   componentDidMount() {
-    this.setState({ isOpen: get(this.props, 'isOpen', this.state.isOpen) });
+    this.setState({ isOpen: get(this.props, 'isOpen', false) });
 
     if (
       typeof window !== 'undefined' &&
@@ -84,6 +84,10 @@ export default class Dropdown extends Component {
   };
 
   toggleDropdown = event => {
+    if (this.props.isDisabled) {
+      return;
+    }
+
     this.setState({
       isOpen: !this.state.isOpen,
       isPristine: false
@@ -99,15 +103,15 @@ export default class Dropdown extends Component {
     const ESC = 27;
 
     if (key === ESC) {
-      event.preventDefault();
+      event && event.preventDefault();
       if (this.state.isOpen) {
-        this.toggleDropdown();
+        this.toggleDropdown(event);
       }
     }
   };
 
   renderMenuItem(item, index) {
-    if (!item && !item.props) {
+    if (!item) {
       return;
     }
 
@@ -160,7 +164,9 @@ export default class Dropdown extends Component {
       ));
     }
 
-    return castArray(this.props.children).map(this.renderMenuItem);
+    return castArray(this.props.children).map((item, index) =>
+      this.renderMenuItem(item, index)
+    );
   }
 
   renderButton() {

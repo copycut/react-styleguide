@@ -9,10 +9,6 @@
   line-height: $lineHeightExtraSmall;
   position: relative;
 
-  &.rsg__separator--reverse {
-    border-color: $greyDark;
-  }
-
   &.rsg__separator--vertical {
     width: 1px;
     height: 100%;
