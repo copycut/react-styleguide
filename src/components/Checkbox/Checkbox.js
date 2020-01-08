@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import './Checkbox.scss';
 
-export default class Checkbox extends Component {
+export default class Checkbox extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
     id: PropTypes.string,

@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import './Text.scss';
 import { SIZES } from '@styleguide/src/constants/sizes';
 
-export default class Text extends Component {
+export default class Text extends React.PureComponent {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

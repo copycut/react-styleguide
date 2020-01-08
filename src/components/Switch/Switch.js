@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { SIZES } from '@styleguide/src/constants/sizes';
 import './Switch.scss';
 
-export default class Switch extends Component {
+export default class Switch extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
     color: PropTypes.string,

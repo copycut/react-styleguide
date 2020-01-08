@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import './Colors.scss';
 
-export default class Colors extends Component {
+export default class Colors extends React.PureComponent {
   static propTypes = {
     /** use theses color references in every components. */
     color: PropTypes.string,

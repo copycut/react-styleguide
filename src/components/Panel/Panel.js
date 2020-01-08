@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Title from '@styleguide/src/components/Title';
 import './Panel.scss';
 
-export default class Panel extends Component {
+export default class Panel extends React.PureComponent {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

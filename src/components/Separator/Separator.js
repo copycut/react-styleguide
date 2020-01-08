@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import './Separator.scss';
 
-export default class Separator extends Component {
+export default class Separator extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,

@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Button from '@styleguide/src/components/Button';
 import Dropdown from '@styleguide/src/components/Dropdown';
 import './Options.scss';
 
-export default class Options extends Component {
+export default class Options extends React.PureComponent {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

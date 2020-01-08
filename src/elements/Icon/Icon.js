@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { SIZES } from '@styleguide/src/constants/sizes';
 import './Icon.scss';
 
-export default class Icon extends Component {
+export default class Icon extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
     color: PropTypes.string,

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import omit from 'lodash/omit';
@@ -6,7 +6,7 @@ import './Title.scss';
 
 const possibleLevels = [1, 2, 3, 4, 5, 6];
 
-export default class Title extends Component {
+export default class Title extends React.PureComponent {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

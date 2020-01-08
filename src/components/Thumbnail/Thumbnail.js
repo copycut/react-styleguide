@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Link from '@styleguide/src/components/Link';
 import './Thumbnail.scss';
 
-export default class Thumbnail extends Component {
+export default class Thumbnail extends React.PureComponent {
   static propTypes = {
     alt: PropTypes.string,
     isCircle: PropTypes.bool,

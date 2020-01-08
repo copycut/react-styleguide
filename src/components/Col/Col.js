@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import './Col.scss';
 
-export default class Col extends Component {
+export default class Col extends React.PureComponent {
   static propTypes = {
     children: PropTypes.node,
     style: PropTypes.object,

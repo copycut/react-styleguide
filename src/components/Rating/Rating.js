@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Icon from '@styleguide/src/elements/Icon';
 import { SIZES } from '@styleguide/src/constants/sizes';
 import './Rating.scss';
 
-export default class Rating extends Component {
+export default class Rating extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,

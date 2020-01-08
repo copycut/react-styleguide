@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Text from '@styleguide/src/components/Text';
 import { SIZES } from '@styleguide/src/constants/sizes';
 import './ProgressBar.scss';
 
-export default class ProgressBar extends Component {
+export default class ProgressBar extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,

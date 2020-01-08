@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import './Radio.scss';
 
-export default class Radio extends Component {
+export default class Radio extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
     id: PropTypes.string,

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { SIZES } from '@styleguide/src/constants/sizes';
@@ -7,7 +7,7 @@ import Icon from '@styleguide/src/elements/Icon';
 import get from 'lodash/get';
 import './Search.scss';
 
-export default class Search extends Component {
+export default class Search extends React.PureComponent {
   static propTypes = {
     autoFocus: PropTypes.bool,
     children: PropTypes.element,

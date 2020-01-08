@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Link from '@styleguide/src/components/Link';
 import './MenuItem.scss';
 
-export default class MenuItem extends Component {
+export default class MenuItem extends React.PureComponent {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import get from 'lodash/get';
@@ -13,7 +13,7 @@ import MenuItem from '@styleguide/src/components/MenuItem';
 import { SIZES } from '@styleguide/src/constants/sizes';
 import './Dropdown.scss';
 
-export default class Dropdown extends Component {
+export default class Dropdown extends React.PureComponent {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

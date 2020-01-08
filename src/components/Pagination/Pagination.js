@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import clamp from 'lodash/clamp';
@@ -11,7 +11,7 @@ import Note from '@styleguide/src/components/Note';
 import { SIZES } from '@styleguide/src/constants/sizes';
 import './Pagination.scss';
 
-export default class Pagination extends Component {
+export default class Pagination extends React.PureComponent {
   static propTypes = {
     itemsCount: PropTypes.number,
     itemsPerPage: PropTypes.number,

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import omit from 'lodash/omit';
@@ -6,7 +6,7 @@ import Text from '@styleguide/src/components/Text';
 import { SIZES } from '@styleguide/src/constants/sizes';
 import './Input.scss';
 
-export default class Input extends Component {
+export default class Input extends React.PureComponent {
   static propTypes = {
     autoFocus: PropTypes.bool,
     className: PropTypes.string,

@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import './Tooltip.scss';
 
-export default class Tooltip extends Component {
+export default class Tooltip extends React.PureComponent {
   static propTypes = {
     isActive: PropTypes.bool,
     children: PropTypes.node,

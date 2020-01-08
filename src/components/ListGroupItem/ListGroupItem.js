@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Link from '@styleguide/src/components/Link';
 import './ListGroupItem.scss';
 
-export default class ListGroupItem extends Component {
+export default class ListGroupItem extends React.PureComponent {
   static propTypes = {
     isActive: PropTypes.bool,
     children: PropTypes.node,

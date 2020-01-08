@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Tab from '@styleguide/src/components/Tab';
 import Button from '@styleguide/src/components/Button';
 import './Tabs.scss';
 
-export default class Tabs extends Component {
+export default class Tabs extends React.PureComponent {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

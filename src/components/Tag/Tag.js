@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import get from 'lodash/get';
@@ -6,7 +6,7 @@ import { SIZES } from '@styleguide/src/constants/sizes';
 import Button from '@styleguide/src/components/Button';
 import './Tag.scss';
 
-export default class Tag extends Component {
+export default class Tag extends React.PureComponent {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

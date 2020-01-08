@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Button from '@styleguide/src/components/Button';
 import Title from '@styleguide/src/components/Title';
 import './Popover.scss';
 
-export default class Popover extends Component {
+export default class Popover extends React.PureComponent {
   static propTypes = {
     isActive: PropTypes.bool,
     buttonText: PropTypes.string,
